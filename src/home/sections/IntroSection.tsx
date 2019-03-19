@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const IntroSection = () => {
+const IntroSection = () => {
     return (
         <section className="intro-section">
             <div className="container">
@@ -34,3 +34,5 @@ export const IntroSection = () => {
         </section>
     )
 }
+
+export default IntroSection;

@@ -1,16 +1,16 @@
 import * as React from 'react'
-import { Header } from '../shared/Header';
-import { HeroSection } from './sections/HeroSection';
-import { IntroSection } from './sections/IntroSection';
-import { BlogSection } from './sections/BlogSection';
-import { IntroVideoSection } from './sections/IntroVideoSection';
-import { FeaturedSection } from './sections/FeaturedSection';
-import { Newsletter } from '../shared/Newsletter';
-import { Footer } from '../shared/Footer';
+import Header from '../shared/Header';
+import HeroSection from './sections/HeroSection';
+import IntroSection from './sections/IntroSection';
+import BlogSection from './sections/BlogSection';
+import IntroVideoSection from './sections/IntroVideoSection';
+import FeaturedSection from './sections/FeaturedSection';
+import Newsletter from '../shared/Newsletter';
+import Footer from '../shared/Footer';
 
-export const Home = () => {
+export default () => {
     return (
-        <div>
+        <React.Fragment>
             {/* <div id="preloder">
                 <div className="loader" />
             </div> */}
@@ -23,6 +23,6 @@ export const Home = () => {
             <FeaturedSection />
             <Newsletter />
             <Footer />
-        </div>
+        </ React.Fragment>
     )
 }

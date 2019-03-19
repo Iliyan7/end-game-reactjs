@@ -1,16 +1,16 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom';
 
-export const Header = () => {
+const Header = () => {
     return (
         <header className="header-section">
             <div className="header-warp">
                 <div className="header-social d-flex justify-content-end">
                     <p>Follow us:</p>
-                    <a href="#"><i className="fa fa-pinterest" /></a>
-                    <a href="#"><i className="fa fa-facebook" /></a>
-                    <a href="#"><i className="fa fa-twitter" /></a>
-                    <a href="#"><i className="fa fa-dribbble" /></a>
-                    <a href="#"><i className="fa fa-behance" /></a>
+                    <a href="https://www.pinterest.com/"><i className="fa fa-pinterest" /></a>
+                    <a href="https://www.facebook.com/"><i className="fa fa-facebook" /></a>
+                    <a href="https://www.instagram.com/"><i className="fa fa-instagram" /></a>
+                    <a href="https://twitter.com"><i className="fa fa-twitter" /></a>
                 </div>
                 <div className="header-bar-warp d-flex">
                     <a className="site-logo">
@@ -18,18 +18,19 @@ export const Header = () => {
                     </a>
                     <nav className="top-nav-area w-100">
                         <div className="user-panel">
-                            <a >Login</a> / <a >Register</a>
+                            <Link to="/login">Login</Link> /
+                            <Link to="/register">Register</Link>
                         </div>
                         <ul className="main-menu primary-menu">
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="games.html">Games</a>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/games">Games</Link>
                                 <ul className="sub-menu">
                                     <li><a href="game-single.html">Game Singel</a></li>
                                 </ul>
                             </li>
-                            <li><a href="review.html">Reviews</a></li>
-                            <li><a href="blog.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><Link to="/reviews">Reviews</Link></li>
+                            <li><Link to="/news">News</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </nav>
                 </div>
@@ -37,3 +38,5 @@ export const Header = () => {
         </header>
     )
 }
+
+export default Header;

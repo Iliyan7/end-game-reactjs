@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const BlogSection = () => {
+const BlogSection = () => {
     return (
         <section className="blog-section spad">
             <div className="container">
@@ -117,3 +117,5 @@ export const BlogSection = () => {
         </section>
     )
 }
+
+export default BlogSection;

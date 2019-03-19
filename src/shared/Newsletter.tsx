@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const Newsletter = () => {
+const Newsletter = () => {
     return (
         <section className="newsletter-section">
             <div className="container">
@@ -13,3 +13,5 @@ export const Newsletter = () => {
         </section>
     )
 }
+
+export default Newsletter;

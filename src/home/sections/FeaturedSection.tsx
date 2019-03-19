@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const FeaturedSection = () => {
+const FeaturedSection = () => {
     return (
         <section className="featured-section">
         <div className="featured-bg set-bg" style={{backgroundImage: 'url("img/featured-bg.jpg")'}} />
@@ -15,3 +15,5 @@ export const FeaturedSection = () => {
     </section>
     )
 }
+
+export default FeaturedSection;

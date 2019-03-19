@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export class IntroVideoSection extends React.Component {
+class IntroVideoSection extends React.Component {
 
     componentDidMount()
     {
@@ -22,3 +22,5 @@ export class IntroVideoSection extends React.Component {
         );
     }
 }
+
+export default IntroVideoSection;
