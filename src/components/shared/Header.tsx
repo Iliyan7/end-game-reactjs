@@ -18,8 +18,7 @@ const Header = () => {
                     </a>
                     <nav className="top-nav-area w-100">
                         <div className="user-panel">
-                            <Link to="/login">Login</Link> /
-                            <Link to="/register">Register</Link>
+                            <Link to="/login">Login</Link> / <Link to="/register">Register</Link>
                         </div>
                         <ul className="main-menu primary-menu">
                             <li><Link to="/">Home</Link></li>

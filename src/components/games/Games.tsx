@@ -1,8 +1,6 @@
 import * as React from 'react';
-import Header from '../shared/Header';
 import Breadcrumb from '../shared/Breadcrumb';
 import Newsletter from '../shared/Newsletter';
-import Footer from '../shared/Footer';
 
 class Games extends React.Component {
   render() {
@@ -11,8 +9,6 @@ class Games extends React.Component {
         {/* <div id="preloder">
           <div className="loader"></div>
         </div> */}
-
-        <Header />
         <Breadcrumb currentPage="Games" />
 
         <section className="games-section">
@@ -281,9 +277,7 @@ class Games extends React.Component {
             </div>
           </div>
         </section>
-
-        <Newsletter />
-        <Footer />
+        
       </React.Fragment>
 
     );

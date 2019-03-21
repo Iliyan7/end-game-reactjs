@@ -1219,7 +1219,9 @@ ol {
 .games-single-page,
 .review-section,
 .blog-page,
-.contact-page {
+.contact-page,
+.login-page,
+.register-page {
 	padding: 104px 0;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#501755+0,2d1854+100 */
 	background: #501755;

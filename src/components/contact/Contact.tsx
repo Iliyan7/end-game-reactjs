@@ -1,8 +1,6 @@
 import * as React from 'react';
-import Header from '../shared/Header';
 import Breadcrumb from '../shared/Breadcrumb';
 import Newsletter from '../shared/Newsletter';
-import Footer from '../shared/Footer';
 
 class Contact extends React.Component {
   render() {
@@ -11,8 +9,6 @@ class Contact extends React.Component {
         {/* <div id="preloder">
           <div className="loader"></div>
         </div> */}
-
-        <Header />
         <Breadcrumb currentPage="Contact" />
 
         <section className="contact-page">
@@ -71,7 +67,6 @@ class Contact extends React.Component {
         </section>
 
         <Newsletter />
-        <Footer />
       </React.Fragment>
 
     );
