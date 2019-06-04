@@ -9,7 +9,7 @@ class Contact extends React.Component {
         {/* <div id="preloder">
           <div className="loader"></div>
         </div> */}
-        <Breadcrumb currentPage="Contact" />
+        <Breadcrumb currentPage="Contact" background="/img/page-top-bg/4.jpg"/>
 
         <section className="contact-page">
           <div className="container">
@@ -65,8 +65,6 @@ class Contact extends React.Component {
             </div>
           </div>
         </section>
-
-        <Newsletter />
       </React.Fragment>
 
     );

@@ -36,7 +36,7 @@ class Login extends React.Component<Props, State> {
     render() {
         return (
             <React.Fragment>
-                <Breadcrumb currentPage="Login" />
+                <Breadcrumb currentPage="Login" background="img/page-top-bg/4.jpg" />
 
                 <section className="login-page">
                     <div className="container">

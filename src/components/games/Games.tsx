@@ -9,7 +9,7 @@ class Games extends React.Component {
         {/* <div id="preloder">
           <div className="loader"></div>
         </div> */}
-        <Breadcrumb currentPage="Games" />
+        <Breadcrumb currentPage="Games" background="img/page-top-bg/4.jpg" />
 
         <section className="games-section">
           <div className="container">

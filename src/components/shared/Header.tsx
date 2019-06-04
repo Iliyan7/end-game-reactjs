@@ -14,7 +14,7 @@ const Header = () => {
                 </div>
                 <div className="header-bar-warp d-flex">
                     <a className="site-logo">
-                        <img src="./img/logo.png" />
+                        <img src="/img/logo.png" />
                     </a>
                     <nav className="top-nav-area w-100">
                         <div className="user-panel">
@@ -24,7 +24,7 @@ const Header = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/games">Games</Link>
                                 <ul className="sub-menu">
-                                    <li><a href="game-single.html">Game Singel</a></li>
+                                    <li><Link to="/games/1/details">Game Singel</Link></li>
                                 </ul>
                             </li>
                             <li><Link to="/reviews">Reviews</Link></li>

@@ -12,6 +12,7 @@ import NotFound from './components/shared/NotFound';
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
 import Newsletter from './components/shared/Newsletter';
+import GameDetails from './components/game-details/GameDetails';
 
 class App extends React.Component {
 
@@ -21,15 +22,16 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/games' component={Games} />
-          <Route path='/reviews' component={Reviews} />
-          <Route path='/news' component={News} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
+          <Route exact path='/games' component={Games} />
+          <Route exact path='/games/:id/details' component={GameDetails} />
+          <Route exact path='/reviews' component={Reviews} />
+          <Route exact path='/news' component={News} />
+          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
           <Route path="*" component={NotFound} />
         </Switch>
-        <Newsletter/>
+        <Newsletter />
         <Footer />
       </Router>
     );

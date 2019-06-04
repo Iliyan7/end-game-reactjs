@@ -39,7 +39,7 @@ class Register extends React.Component<Props, State>  {
         return (
             <React.Fragment>
 
-                <Breadcrumb currentPage="Register" />
+                <Breadcrumb currentPage="Register" background="img/page-top-bg/4.jpg" />
 
                 <section className="register-page">
                     <div className="container">

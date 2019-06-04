@@ -7,7 +7,7 @@ class Reviews extends React.Component {
     return (
       <React.Fragment>
 
-        <Breadcrumb currentPage="Reviews" />
+        <Breadcrumb currentPage="Reviews" background="/img/page-top-bg/2.jpg" />
         <section className="review-section">
           <div className="container">
             <ul className="game-filter">

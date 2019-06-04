@@ -6,7 +6,7 @@ class News extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumb currentPage="News" />
+        <Breadcrumb currentPage="News" background="img/page-top-bg/3.jpg" />
 
         <section className="blog-page">
           <div className="container">

@@ -3,22 +3,21 @@ import { Link } from "react-router-dom";
 
 interface Props {
   currentPage: string
+  background: string
 }
 
-class Breadcrumb extends React.Component<Props> {
-  render(): React.ReactNode {
-    return (
-      <section className="page-top-section set-bg" style={{ backgroundImage: 'url("img/page-top-bg/4.jpg")' }}>
-        <div className="page-info">
-          <h2>{this.props.currentPage}</h2>
-          <div className="site-breadcrumb">
-            <Link to="/">Home</Link> /
-            <span>{this.props.currentPage}</span>
-          </div>
+const Breadcrumb = (props: Props) => {
+  return (
+    <section className="page-top-section set-bg" style={{ backgroundImage: `url('${props.background}')` }}>
+      <div className="page-info">
+        <h2>{props.currentPage}</h2>
+        <div className="site-breadcrumb">
+          <Link to="/">Home</Link> /
+          <span>{props.currentPage}</span>
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
 }
 
 export default Breadcrumb;
