@@ -51,7 +51,7 @@ class Register extends React.Component<Props, State>  {
                                     <input name="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="E-mail" />
                                     <input name="password" type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
                                     <input name="retype-password" type="password" value={this.state.retypePassword} onChange={this.handleChange} placeholder="Re-type password" />
-                                    <button className="site-btn">Register<img src="img/icons/double-arrow.png" />
+                                    <button className="site-btn">Register<img src="/img/icons/double-arrow.png" />
                                     </button>
                                 </form>
                             </div>

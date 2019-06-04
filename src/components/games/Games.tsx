@@ -1,15 +1,11 @@
 import * as React from 'react';
 import Breadcrumb from '../shared/Breadcrumb';
-import Newsletter from '../shared/Newsletter';
 
 class Games extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* <div id="preloder">
-          <div className="loader"></div>
-        </div> */}
-        <Breadcrumb currentPage="Games" background="img/page-top-bg/4.jpg" />
+        <Breadcrumb currentPage="Games" background="/img/page-top-bg/4.jpg" />
 
         <section className="games-section">
           <div className="container">
@@ -98,91 +94,91 @@ class Games extends React.Component {
                 <div className="row">
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/1.jpg" alt="#" />
+                      <img src="/img/games/1.jpg" alt="#" />
                       <h5>Zombie Appocalipse 2</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/2.jpg" alt="#" />
+                      <img src="/img/games/2.jpg" alt="#" />
                       <h5>Dooms Day</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/3.jpg" alt="#" />
+                      <img src="/img/games/3.jpg" alt="#" />
                       <h5>The Huricane</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/4.jpg" alt="#" />
+                      <img src="/img/games/4.jpg" alt="#" />
                       <h5>Star Wars</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/5.jpg" alt="#" />
+                      <img src="/img/games/5.jpg" alt="#" />
                       <h5>Candy land</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/6.jpg" alt="#" />
+                      <img src="/img/games/6.jpg" alt="#" />
                       <h5>E.T.</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/7.jpg" alt="#" />
+                      <img src="/img/games/7.jpg" alt="#" />
                       <h5>Zombie Appocalipse 2</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/8.jpg" alt="#" />
+                      <img src="/img/games/8.jpg" alt="#" />
                       <h5>Dooms Day</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-6">
                     <div className="game-item">
-                      <img src="img/games/9.jpg" alt="#" />
+                      <img src="/img/games/9.jpg" alt="#" />
                       <h5>The Huricane</h5>
                       <a href="game-single.html" className="read-more">
                         Read More{" "}
-                        <img src="img/icons/double-arrow.png" alt="#" />
+                        <img src="/img/icons/double-arrow.png" alt="#" />
                       </a>
                     </div>
                   </div>

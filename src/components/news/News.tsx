@@ -28,7 +28,7 @@ class News extends React.Component {
                 </ul>
                 <div className="big-blog-item">
                   <img
-                    src="img/blog-big/1.jpg"
+                    src="/img/blog-big/1.jpg"
                     alt="#"
                     className="blog-thumbnail"
                   />
@@ -47,13 +47,13 @@ class News extends React.Component {
             </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>
                 <div className="big-blog-item">
                   <img
-                    src="img/blog-big/2.jpg"
+                    src="/img/blog-big/2.jpg"
                     alt="#"
                     className="blog-thumbnail"
                   />
@@ -72,13 +72,13 @@ class News extends React.Component {
             </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>
                 <div className="big-blog-item">
                   <img
-                    src="img/blog-big/3.jpg"
+                    src="/img/blog-big/3.jpg"
                     alt="#"
                     className="blog-thumbnail"
                   />
@@ -97,7 +97,7 @@ class News extends React.Component {
             </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>

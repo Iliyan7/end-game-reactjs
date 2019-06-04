@@ -1,6 +1,6 @@
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
-interface IHtppOptions {
+interface IHttpOptions {
     contentType: string,
     body?: string
 }
@@ -13,31 +13,31 @@ class Ajax {
         return this.instance || (this.instance = new this())
     }
 
-    public async get(path: string, httpOptions?: IHtppOptions) {
+    public async get(path: string, httpOptions?: IHttpOptions) {
         const data = await this.makeRequest('GET', path, httpOptions)
 
         return data;
     }
 
-    public async post(path: string, httpOptions?: IHtppOptions) {
+    public async post(path: string, httpOptions?: IHttpOptions) {
         const data = await this.makeRequest('POST', path, httpOptions)
 
         return data;
     }
 
-    public put(path: string, httpOptions?: IHtppOptions) {
+    public put(path: string, httpOptions?: IHttpOptions) {
 
     }
 
-    public patch(path: string, httpOptions?: IHtppOptions) {
+    public patch(path: string, httpOptions?: IHttpOptions) {
 
     }
 
-    public delete(path: string, httpOptions?: IHtppOptions) {
+    public delete(path: string, httpOptions?: IHttpOptions) {
 
     }
 
-    private async makeRequest(httpMethod: HttpMethod, httpPath: string, httpOptions?: IHtppOptions) {
+    private async makeRequest(httpMethod: HttpMethod, httpPath: string, httpOptions?: IHttpOptions) {
         const url = this.baseURL + httpPath;
 
         let params = {

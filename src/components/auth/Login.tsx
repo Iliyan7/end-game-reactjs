@@ -45,7 +45,7 @@ class Login extends React.Component<Props, State> {
                                 <form method="post" onSubmit={this.handleSubmit} className="contact-form">
                                     <input name="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="Your e-mail" />
                                     <input name="password" type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
-                                    <button className="site-btn">Login<img src="img/icons/double-arrow.png" /></button>
+                                    <button className="site-btn">Login<img src="/img/icons/double-arrow.png" /></button>
                                 </form>
                             </div>
                         </div>

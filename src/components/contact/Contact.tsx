@@ -28,7 +28,7 @@ class Contact extends React.Component {
                   <textarea placeholder="Message" defaultValue={""} />
                   <button className="site-btn">
                     Send message<img
-                      src="img/icons/double-arrow.png"
+                      src="/img/icons/double-arrow.png"
                       alt="#"
                     />
                   </button>
@@ -45,19 +45,19 @@ class Contact extends React.Component {
                  </p>
                 <div className="cont-info">
                   <div className="ci-icon">
-                    <img src="img/icons/location.png" />
+                    <img src="/img/icons/location.png" />
                   </div>
                   <div className="ci-text">Main Str, no 23, New York</div>
                 </div>
                 <div className="cont-info">
                   <div className="ci-icon">
-                    <img src="img/icons/phone.png" />
+                    <img src="/img/icons/phone.png" />
                   </div>
                   <div className="ci-text">+546 990221 123</div>
                 </div>
                 <div className="cont-info">
                   <div className="ci-icon">
-                    <img src="img/icons/mail.png" />
+                    <img src="/img/icons/mail.png" />
                   </div>
                   <div className="ci-text">hosting@contact.com</div>
                 </div>

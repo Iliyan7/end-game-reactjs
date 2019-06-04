@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom';
+import FollowUs from './FollowUs';
 
 const Header = () => {
     return (
@@ -7,10 +8,7 @@ const Header = () => {
             <div className="header-warp">
                 <div className="header-social d-flex justify-content-end">
                     <p>Follow us:</p>
-                    <a href="https://www.pinterest.com/"><i className="fa fa-pinterest" /></a>
-                    <a href="https://www.facebook.com/"><i className="fa fa-facebook" /></a>
-                    <a href="https://www.instagram.com/"><i className="fa fa-instagram" /></a>
-                    <a href="https://twitter.com"><i className="fa fa-twitter" /></a>
+                    <FollowUs />
                 </div>
                 <div className="header-bar-warp d-flex">
                     <a className="site-logo">
@@ -18,18 +16,18 @@ const Header = () => {
                     </a>
                     <nav className="top-nav-area w-100">
                         <div className="user-panel">
-                            <Link to="/login">Login</Link> / <Link to="/register">Register</Link>
+                            <Link to="/v1/login">Login</Link> / <Link to="/v1/register">Register</Link>
                         </div>
                         <ul className="main-menu primary-menu">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/games">Games</Link>
+                            <li><Link to="/v1/">Home</Link></li>
+                            <li><Link to="/v1/games">Games</Link>
                                 <ul className="sub-menu">
-                                    <li><Link to="/games/1/details">Game Singel</Link></li>
+                                    <li><Link to="/v1/games/1/details">Game Singel</Link></li>
                                 </ul>
                             </li>
-                            <li><Link to="/reviews">Reviews</Link></li>
-                            <li><Link to="/news">News</Link></li>
-                            <li><Link to="/contact">Contact</Link></li>
+                            <li><Link to="/v1/reviews">Reviews</Link></li>
+                            <li><Link to="/v1/news">News</Link></li>
+                            <li><Link to="/v1/contact">Contact</Link></li>
                         </ul>
                     </nav>
                 </div>

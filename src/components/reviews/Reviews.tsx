@@ -94,7 +94,7 @@ class Reviews extends React.Component {
               <div className="row">
                 <div className="col-lg-4">
                   <div className="review-pic">
-                    <img src="img/review/1.jpg" />
+                    <img src="/img/review/1.jpg" />
                   </div>
                 </div>
                 <div className="col-lg-8">
@@ -123,7 +123,7 @@ class Reviews extends React.Component {
                 </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ class Reviews extends React.Component {
               <div className="row">
                 <div className="col-lg-4">
                   <div className="review-pic">
-                    <img src="img/review/2.jpg" />
+                    <img src="/img/review/2.jpg" />
                   </div>
                 </div>
                 <div className="col-lg-8">
@@ -162,7 +162,7 @@ class Reviews extends React.Component {
                 </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ class Reviews extends React.Component {
               <div className="row">
                 <div className="col-lg-4">
                   <div className="review-pic">
-                    <img src="img/review/3.jpg" />
+                    <img src="/img/review/3.jpg" />
                   </div>
                 </div>
                 <div className="col-lg-8">
@@ -201,7 +201,7 @@ class Reviews extends React.Component {
                 </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ class Reviews extends React.Component {
               <div className="row">
                 <div className="col-lg-4">
                   <div className="review-pic">
-                    <img src="img/review/4.jpg" />
+                    <img src="/img/review/4.jpg" />
                   </div>
                 </div>
                 <div className="col-lg-8">
@@ -240,7 +240,7 @@ class Reviews extends React.Component {
                 </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ class Reviews extends React.Component {
               <div className="row">
                 <div className="col-lg-4">
                   <div className="review-pic">
-                    <img src="img/review/5.jpg" />
+                    <img src="/img/review/5.jpg" />
                   </div>
                 </div>
                 <div className="col-lg-8">
@@ -279,7 +279,7 @@ class Reviews extends React.Component {
                 </p>
                     <a href="#" className="read-more">
                       Read More{" "}
-                      <img src="img/icons/double-arrow.png" alt="#" />
+                      <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
                 </div>

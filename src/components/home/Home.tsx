@@ -4,10 +4,12 @@ import IntroSection from './sections/IntroSection';
 import BlogSection from './sections/BlogSection';
 import IntroVideoSection from './sections/IntroVideoSection';
 import FeaturedSection from './sections/FeaturedSection';
+import Header from '../shared/Header';
 
-export default () => {
+const Home = (props: any) => {
     return (
         <React.Fragment>
+             <Header />
             {/* <div id="preloder">
                 <div className="loader" />
             </div> */}
@@ -20,3 +22,5 @@ export default () => {
         </ React.Fragment>
     )
 }
+
+export default Home;
