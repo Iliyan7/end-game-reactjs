@@ -1,9 +1,6 @@
-import {action} from 'mobx';
 import ajax from '../ajax/ajax';
 
 class AuthStore {
-
-    @action
     async login() {
         var data = await ajax.post('/auth/login');
 
@@ -11,12 +8,10 @@ class AuthStore {
         this.storeAccessToken(token);
     }
 
-    @action
     async register() {
         var data = await ajax.post('auth/register');
     }
 
-    @action
     logout() {
         this.deleteAccessToken();
     }
