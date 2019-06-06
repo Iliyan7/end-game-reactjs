@@ -1,15 +1,28 @@
-import ajax from '../ajax/ajax';
+import http from '../http/HttpClient';
 
 class AuthStore {
     async login() {
-        var data = await ajax.post('/auth/login');
+        const body = {
+            email: 'admin@mail.com',
+            password: '123456'
+        }
 
-        var token = data.token;
-        this.storeAccessToken(token);
+        try {
+            var data = await http.post('/auth/login', body);
+
+            var token = data.token;
+            this.storeAccessToken(token);
+        } catch (error) {
+            
+        }
     }
 
     async register() {
-        var data = await ajax.post('auth/register');
+        try {
+            var data = await http.post('auth/register', { });
+        } catch (error) {
+            
+        }
     }
 
     logout() {

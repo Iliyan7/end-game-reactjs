@@ -1,18 +1,24 @@
 import * as React from 'react'
 import '../../styles/server-error.css'
 
-const ServerError = () => {
+
+class ServerError extends React.Component {
+
+  componentDidMount() {
+    document.querySelector('body')!.style.cssText = 'background: #eaeaea;'
+
+    setTimeout(function () {
+      const load = document.querySelector("section.loading");
   
-  setTimeout(function () {
-    const load = document.querySelector("section.loading");
+      if (load) {
+        load.classList.remove('loading');
+      }
+    }, 1000);
+  }
 
-    if(load) {
-      load.classList.remove('loading');
-    }
-  }, 1000);
-
-  return (
-    <section className="server-error loading">
+  render() {
+    return (
+      <section className="server-error loading">
         <h1>500</h1>
         <h2>Unexpected Error <b>:(</b></h2>
         <div className="gears">
@@ -32,8 +38,9 @@ const ServerError = () => {
             <div className="bar"></div>
           </div>
         </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 export default ServerError;
