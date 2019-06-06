@@ -5,12 +5,14 @@ import Content from './components/Content';
 import NotFound from './components/shared/NotFound';
 import * as serviceWorker from './serviceWorker';
 import './styles/styles.css';
+import ServerError from './components/shared/ServerError';
 
 const App = () => (
     <Router>
         <Switch>
             <Route exact path='/' render={() => (<Redirect to ="/v1/" />)} />
-            <Route exact path='/v1' component={Content} />
+            <Route path='/v1' component={Content} />
+            <Route path='/error' component={ServerError} />
             <Route component={NotFound} />
         </Switch>
     </Router>

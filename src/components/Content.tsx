@@ -23,7 +23,7 @@ class Content extends React.Component<any> {
                     <Route exact path={baseUrl + '/games'} component={Games} />
                     <Route exact path='/v1/games/:id/details' component={GameDetails} />
                     <Route exact path='/v1/reviews' component={Reviews} />
-                    <Route exact path='/v1/news' component={News} />
+                    <Route path='/v1/news' component={News} />
                     <Route exact path='/v1/contact' component={Contact} />
                     <Route exact path='/v1/login' component={Login} />
                     <Route exact path='/v1/register' component={Register} />

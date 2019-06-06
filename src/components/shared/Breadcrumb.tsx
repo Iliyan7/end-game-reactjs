@@ -12,7 +12,7 @@ const Breadcrumb = (props: Props) => {
       <div className="page-info">
         <h2>{props.currentPage}</h2>
         <div className="site-breadcrumb">
-          <Link to="/">Home</Link> /
+          <Link to="/v1/">Home</Link> /
           <span>{props.currentPage}</span>
         </div>
       </div>

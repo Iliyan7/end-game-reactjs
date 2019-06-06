@@ -1,12 +1,13 @@
 import React from "react";
 import Breadcrumb from "../shared/Breadcrumb";
+import FollowUs from "../shared/FollowUs";
 
 class GameDetails extends React.Component {
 
   render() {
     return (
       <React.Fragment>
-        <Breadcrumb currentPage="Game Details" background="/img/page-top-bg/4.jpg" />
+        <Breadcrumb currentPage="Name Of Game!" background="/img/page-top-bg/4.jpg" />
 
         <section className="games-single-page">
           <div className="container">
@@ -24,11 +25,7 @@ class GameDetails extends React.Component {
 					      </p>
                 <div className="geme-social-share pt-5 d-flex">
                   <p>Share:</p>
-                  <a href="#"><i className="fa fa-pinterest"></i></a>
-                  <a href="#"><i className="fa fa-facebook"></i></a>
-                  <a href="#"><i className="fa fa-twitter"></i></a>
-                  <a href="#"><i className="fa fa-dribbble"></i></a>
-                  <a href="#"><i className="fa fa-behance"></i></a>
+                  <FollowUs />
                 </div>
               </div>
               <div className="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">

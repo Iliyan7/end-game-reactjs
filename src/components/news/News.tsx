@@ -6,7 +6,7 @@ class News extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumb currentPage="News" background="img/page-top-bg/3.jpg" />
+        <Breadcrumb currentPage="News" background="/img/page-top-bg/3.jpg" />
 
         <section className="blog-page">
           <div className="container">
@@ -122,7 +122,7 @@ class News extends React.Component {
                     <div className="trending-widget">
                       <div className="tw-item">
                         <div className="tw-thumb">
-                          <img src="./img/blog-widget/1.jpg" alt="#" />
+                          <img src="/img/blog-widget/1.jpg" alt="#" />
                         </div>
                         <div className="tw-text">
                           <div className="tw-meta">
@@ -133,7 +133,7 @@ class News extends React.Component {
                       </div>
                       <div className="tw-item">
                         <div className="tw-thumb">
-                          <img src="./img/blog-widget/2.jpg" alt="#" />
+                          <img src="/img/blog-widget/2.jpg" alt="#" />
                         </div>
                         <div className="tw-text">
                           <div className="tw-meta">
@@ -144,7 +144,7 @@ class News extends React.Component {
                       </div>
                       <div className="tw-item">
                         <div className="tw-thumb">
-                          <img src="./img/blog-widget/3.jpg" alt="#" />
+                          <img src="/img/blog-widget/3.jpg" alt="#" />
                         </div>
                         <div className="tw-text">
                           <div className="tw-meta">
@@ -155,7 +155,7 @@ class News extends React.Component {
                       </div>
                       <div className="tw-item">
                         <div className="tw-thumb">
-                          <img src="./img/blog-widget/4.jpg" alt="#" />
+                          <img src="/img/blog-widget/4.jpg" alt="#" />
                         </div>
                         <div className="tw-text">
                           <div className="tw-meta">
@@ -196,7 +196,7 @@ class News extends React.Component {
                     <div className="latest-comments">
                       <div className="lc-item">
                         <img
-                          src="./img/blog-widget/1.jpg"
+                          src="/img/blog-widget/1.jpg"
                           className="lc-avatar"
                           alt="#"
                         />
@@ -207,7 +207,7 @@ class News extends React.Component {
                       </div>
                       <div className="lc-item">
                         <img
-                          src="./img/blog-widget/2.jpg"
+                          src="/img/blog-widget/2.jpg"
                           className="lc-avatar"
                           alt="#"
                         />
@@ -218,7 +218,7 @@ class News extends React.Component {
                       </div>
                       <div className="lc-item">
                         <img
-                          src="./img/blog-widget/3.jpg"
+                          src="/img/blog-widget/3.jpg"
                           className="lc-avatar"
                           alt="#"
                         />
@@ -229,7 +229,7 @@ class News extends React.Component {
                       </div>
                       <div className="lc-item">
                         <img
-                          src="./img/blog-widget/4.jpg"
+                          src="/img/blog-widget/4.jpg"
                           className="lc-avatar"
                           alt="#"
                         />
@@ -242,7 +242,7 @@ class News extends React.Component {
                   </div>
                   <div className="widget-item">
                     <a href="#" className="add">
-                      <img src="./img/add.jpg" />
+                      <img src="/img/add.jpg" />
                     </a>
                   </div>
                 </div>
