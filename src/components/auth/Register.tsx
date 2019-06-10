@@ -1,13 +1,18 @@
 import * as React from 'react';
+import { StoreProps } from '../../stores';
 import Breadcrumb from '../shared/Breadcrumb';
+import { inject, observer } from 'mobx-react';
+import { RegisterModel } from '../../models/AuthModels';
 
-interface Props {
+interface Props extends StoreProps {
 }
 
 interface State {
     [key: string]: any
 }
 
+@inject('authStore')
+@observer
 class Register extends React.Component<Props, State>  {
 
     constructor(props: Props) {
@@ -33,13 +38,15 @@ class Register extends React.Component<Props, State>  {
 
     handleSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
+
+        this.props.authStore.register(this.state as RegisterModel)
     }
 
     render() {
         return (
             <React.Fragment>
 
-                <Breadcrumb currentPage="Register" background="img/page-top-bg/4.jpg" />
+                <Breadcrumb currentPage="Register" background="/img/page-top-bg/4.jpg" />
 
                 <section className="register-page">
                     <div className="container">

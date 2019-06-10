@@ -6,7 +6,10 @@ import IntroVideoSection from './sections/IntroVideoSection';
 import FeaturedSection from './sections/FeaturedSection';
 import Header from '../shared/Header';
 
-const Home = (props: any) => {
+type Props = {
+}
+
+const Home: React.FC<any> = (props: Props) => {
     return (
         <React.Fragment>
              <Header />

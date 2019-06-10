@@ -1,7 +1,13 @@
 import * as React from 'react';
 import Breadcrumb from '../shared/Breadcrumb';
 
-class Games extends React.Component {
+type Props = {
+}
+
+type State = {
+}
+
+class Games extends React.Component<Props, State> {
   render() {
     return (
       <React.Fragment>

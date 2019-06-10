@@ -1,13 +1,18 @@
+import { inject, observer } from 'mobx-react';
 import * as React from 'react';
+import { LoginModel } from '../../models/AuthModels';
+import { StoreProps } from '../../stores';
 import Breadcrumb from '../shared/Breadcrumb';
 
-interface Props {
+interface Props extends StoreProps {
 }
 
-interface State {
+type State = {
     [key: string]: any
 }
 
+@inject('authStore')
+@observer
 class Login extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
@@ -30,13 +35,13 @@ class Login extends React.Component<Props, State> {
     handleSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
 
-        const { email, password } = this.state;
+        this.props.authStore.login(this.state as LoginModel)
     }
 
     render() {
         return (
             <React.Fragment>
-                <Breadcrumb currentPage="Login" background="img/page-top-bg/4.jpg" />
+                <Breadcrumb currentPage="Login" background="/img/page-top-bg/4.jpg" />
 
                 <section className="login-page">
                     <div className="container">

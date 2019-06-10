@@ -1,16 +1,18 @@
+import { Provider } from 'mobx-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Content from './components/Content';
 import NotFound from './components/shared/NotFound';
-import * as serviceWorker from './serviceWorker';
-import './styles/styles.css';
 import ServerError from './components/shared/ServerError';
+import * as serviceWorker from './serviceWorker';
+import stores from "./stores/index";
+import './styles/styles.css';
 
 const App = () => (
     <Router>
         <Switch>
-            <Route exact path='/' render={() => (<Redirect to ="/v1/" />)} />
+            <Route exact path='/' render={() => (<Redirect to="/v1/" />)} />
             <Route path='/v1' component={Content} />
             <Route path='/error' component={ServerError} />
             <Route component={NotFound} />
@@ -18,7 +20,11 @@ const App = () => (
     </Router>
 )
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render((
+    <Provider {...stores} >
+        <App />
+    </Provider>
+), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -5,7 +5,7 @@ interface IHttpOptions {
   params?: {
     [header: string]: string | string[];
   }
-  contentType: string,
+  contentType?: string,
 }
 
 export default IHttpOptions

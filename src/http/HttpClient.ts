@@ -11,45 +11,62 @@ class HttpClient {
     }
 
     public async get(url: string, options?: IHttpOptions) {
-        const data = await this.makeRequest('GET', url, options)
+        const data = await this.makeRequest({ method: 'GET', url, options })
 
         return data;
     }
 
-    public async post(url: string, body:any, options?: IHttpOptions) {
-        const data = await this.makeRequest('POST', url, body, options)
+    public async post(url: string, body: any, options?: IHttpOptions) {
+        const data = await this.makeRequest({ method: 'POST', url, body, options })
 
         return data;
     }
 
-    public put(url: string, body: any, options?: IHttpOptions) {
+    public async put(url: string, body: any, options?: IHttpOptions) {
+        const data = await this.makeRequest({ method: 'PUT', url, body, options })
 
+        return data;
     }
 
-    public patch(url: string, body: any, options?: IHttpOptions) {
+    public async patch(url: string, body: any, options?: IHttpOptions) {
+        const data = await this.makeRequest({ method: 'PATCH', url, body, options })
 
+        return data;
     }
 
-    public delete(url: string, body: any, options?: IHttpOptions) {
+    public async delete(url: string, options?: IHttpOptions) {
+        const data = await this.makeRequest({ method: 'DELETE', url, options })
 
+        return data;
     }
 
-    private async makeRequest(httpMethod: HttpMethod, url: string, body: any, options?: IHttpOptions) {
+    private async makeRequest(params: { method: HttpMethod, url: string, body?: any, options?: IHttpOptions }) {
+        const {method, url, body, options} = params;
+
         const endpoint = Constants.BASE_URL + url;
 
-        const init = {
-            method: httpMethod,
+        const init: any = {
+            method: method,
             headers: {
-                "Content-Type": options!.contentType || 'application/json',
-                ...options!.headers
+                "Content-Type": 'application/json',
             },
         };
 
+        if (options) {
+            init.headers = options.headers
+            init.headers["Content-Type"] = options.contentType
+        }
+
+        if (body) {
+            init.body = JSON.stringify(body);
+        }
+
         try {
             const response = await fetch(endpoint, init);
+
             return response.json();
         } catch (error) {
-            return error;
+            throw error
         }
     }
 }
