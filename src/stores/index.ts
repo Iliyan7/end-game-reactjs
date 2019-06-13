@@ -1,9 +1,12 @@
-import authStore, { AuthStore } from './authStore';
+import AuthStore from "./authStore";
+import UserStore from "./userStore";
 
-export default {
-  authStore
+export const stores = {
+  authStore: new AuthStore(),
+  userStore: new UserStore()
 }
 
-export interface StoreProps {
+export interface IMobxStoreProps {
   authStore: AuthStore;
+  userStore: UserStore;
 }

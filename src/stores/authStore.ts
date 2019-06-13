@@ -2,7 +2,7 @@ import http from '../http/HttpClient';
 import { LoginModel } from '../models/AuthModels';
 import { observable, action } from 'mobx';
 
-export class AuthStore {
+class AuthStore {
     @observable public isAuthenticated: boolean = false
 
     @action
@@ -29,7 +29,9 @@ export class AuthStore {
         }
     }
 
+    @action
     public logout() {
+        this.isAuthenticated = false;
         this.deleteAccessToken();
     }
 
@@ -44,7 +46,6 @@ export class AuthStore {
     private deleteAccessToken(): void {
         localStorage.removeItem('access_token');
     }
-
 }
 
-export default new AuthStore();
+export default AuthStore;

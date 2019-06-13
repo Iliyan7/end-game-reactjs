@@ -6,7 +6,7 @@ import Content from './components/Content';
 import NotFound from './components/shared/NotFound';
 import ServerError from './components/shared/ServerError';
 import * as serviceWorker from './serviceWorker';
-import stores from "./stores/index";
+import { stores } from "./stores/index";
 import './styles/styles.css';
 
 const App = () => (

@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { StoreProps } from '../../stores';
-import Breadcrumb from '../shared/Breadcrumb';
 import { inject, observer } from 'mobx-react';
+import * as React from 'react';
 import { RegisterModel } from '../../models/AuthModels';
+import { IMobxStoreProps } from '../../stores';
+import Breadcrumb from '../shared/Breadcrumb';
 
-interface Props extends StoreProps {
+interface Props extends IMobxStoreProps {
 }
 
-interface State {
+type State = {
     [key: string]: any
 }
 

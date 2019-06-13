@@ -1,10 +1,10 @@
-import { inject, observer } from 'mobx-react';
+import { inject, observer, PropTypes } from 'mobx-react';
 import * as React from 'react';
 import { LoginModel } from '../../models/AuthModels';
-import { StoreProps } from '../../stores';
+import { IMobxStoreProps } from '../../stores';
 import Breadcrumb from '../shared/Breadcrumb';
 
-interface Props extends StoreProps {
+interface Props extends IMobxStoreProps {
 }
 
 type State = {
@@ -26,6 +26,10 @@ class Login extends React.Component<Props, State> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    get stores() {
+        return this.props as IMobxStoreProps;
+    }
+
     handleChange(event: any) {
         const { target: { name, value } } = event
 
@@ -35,7 +39,7 @@ class Login extends React.Component<Props, State> {
     handleSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
 
-        this.props.authStore.login(this.state as LoginModel)
+        this.stores.authStore.login(this.state as LoginModel)
     }
 
     render() {
@@ -61,4 +65,4 @@ class Login extends React.Component<Props, State> {
     }
 }
 
-export default Login;
+export default inject((stores: any) => ({ stores: stores}))(Login);
