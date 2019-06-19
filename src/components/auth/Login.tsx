@@ -1,21 +1,22 @@
-import { inject, observer, PropTypes } from 'mobx-react';
-import * as React from 'react';
-import { LoginModel } from '../../models/AuthModels';
-import { IMobxStoreProps } from '../../stores';
-import Breadcrumb from '../shared/Breadcrumb';
+import { inject, observer } from 'mobx-react';
+import React from 'react';
+import { LoginModel } from '../../models/auth-models';
+import { nameofFactory } from '../../shared/nameof-factory';
+import { RootStoreProp } from '../../stores/root-store';
+import Breadcrumb from '../shared/breadcrumb';
 
-interface Props extends IMobxStoreProps {
-}
+type Props = {
+} & RootStoreProp
 
 type State = {
     [key: string]: any
 }
 
-@inject('authStore')
+@inject('rootStore')
 @observer
 class Login extends React.Component<Props, State> {
     constructor(props: Props) {
-        super(props);
+        super(props)
 
         this.state = {
             email: '',
@@ -26,8 +27,8 @@ class Login extends React.Component<Props, State> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    get stores() {
-        return this.props as IMobxStoreProps;
+    get rootStore() {
+        return this.props.rootStore
     }
 
     handleChange(event: any) {
@@ -39,10 +40,12 @@ class Login extends React.Component<Props, State> {
     handleSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
 
-        this.stores.authStore.login(this.state as LoginModel)
+        this.rootStore.userStore.login(this.state as LoginModel)
     }
 
     render() {
+        const nameof = nameofFactory<LoginModel>();
+
         return (
             <React.Fragment>
                 <Breadcrumb currentPage="Login" background="/img/page-top-bg/4.jpg" />
@@ -51,10 +54,10 @@ class Login extends React.Component<Props, State> {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-7 order-2 order-lg-1">
-                                <form method="post" onSubmit={this.handleSubmit} className="contact-form">
-                                    <input name="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="Your e-mail" />
-                                    <input name="password" type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
-                                    <button className="site-btn">Login<img src="/img/icons/double-arrow.png" /></button>
+                                <form onSubmit={this.handleSubmit} className="contact-form">
+                                    <input name={nameof("email")} type="text" value={this.state.email} onChange={this.handleChange} placeholder="Your e-mail" />
+                                    <input name={nameof("password")} type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
+                                    <button className="site-btn">Login <img src="/img/icons/double-arrow.png" /></button>
                                 </form>
                             </div>
                         </div>
@@ -65,4 +68,5 @@ class Login extends React.Component<Props, State> {
     }
 }
 
-export default inject((stores: any) => ({ stores: stores}))(Login);
+export default Login;
+// inject((store: RootStore) => ({store}))(Login);

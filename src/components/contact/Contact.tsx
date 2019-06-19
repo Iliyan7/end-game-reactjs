@@ -1,14 +1,10 @@
-import * as React from 'react';
-import Breadcrumb from '../shared/Breadcrumb';
-import Newsletter from '../shared/Newsletter';
+import React from 'react';
+import Breadcrumb from '../shared/breadcrumb';
 
 class Contact extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* <div id="preloder">
-          <div className="loader"></div>
-        </div> */}
         <Breadcrumb currentPage="Contact" background="/img/page-top-bg/4.jpg"/>
 
         <section className="contact-page">

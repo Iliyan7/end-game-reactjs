@@ -1,6 +1,6 @@
 import React from "react";
-import Breadcrumb from "../shared/Breadcrumb";
-import FollowUs from "../shared/FollowUs";
+import Breadcrumb from "../shared/breadcrumb";
+import FollowUs from "../shared/follow-us";
 
 class GameDetails extends React.Component {
 

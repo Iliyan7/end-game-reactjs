@@ -1,5 +1,5 @@
-import * as React from 'react'
-import FollowUs from './FollowUs';
+import React from 'react'
+import FollowUs from './follow-us';
 
 const Footer = () => {
     return (

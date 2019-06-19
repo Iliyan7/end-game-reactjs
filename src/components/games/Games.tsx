@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Breadcrumb from '../shared/Breadcrumb';
+import React from 'react';
+import Breadcrumb from '../shared/breadcrumb';
 
 type Props = {
 }

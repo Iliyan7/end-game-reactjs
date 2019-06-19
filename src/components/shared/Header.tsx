@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import FollowUs from './FollowUs';
+import FollowUs from './follow-us';
 
 const Header = () => {
     return (

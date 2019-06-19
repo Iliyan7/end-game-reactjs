@@ -1,4 +1,6 @@
-interface IHttpOptions {
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
+
+export type HttpOptions = {
   headers?: {
     [header: string]: string | string[];
   }
@@ -7,5 +9,3 @@ interface IHttpOptions {
   }
   contentType?: string,
 }
-
-export default IHttpOptions

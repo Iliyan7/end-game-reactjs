@@ -1,10 +1,9 @@
-import * as React from 'react'
-import HeroSection from './sections/HeroSection';
-import IntroSection from './sections/IntroSection';
-import BlogSection from './sections/BlogSection';
-import IntroVideoSection from './sections/IntroVideoSection';
-import FeaturedSection from './sections/FeaturedSection';
-import Header from '../shared/Header';
+import React from 'react';
+import BlogSection from './sections/blog-section';
+import FeaturedSection from './sections/featured-section';
+import HeroSection from './sections/hero-section';
+import IntroSection from './sections/intro-section';
+import IntroVideoSection from './sections/intro-video-section';
 
 type Props = {
 }
@@ -12,17 +11,12 @@ type Props = {
 const Home: React.FC<any> = (props: Props) => {
     return (
         <React.Fragment>
-             <Header />
-            {/* <div id="preloder">
-                <div className="loader" />
-            </div> */}
-
             <HeroSection />
             <IntroSection />
             <BlogSection />
             <IntroVideoSection />
             <FeaturedSection />
-        </ React.Fragment>
+        </React.Fragment>
     )
 }
 

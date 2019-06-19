@@ -2,11 +2,11 @@ import { Provider } from 'mobx-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import Content from './components/Content';
-import NotFound from './components/shared/NotFound';
-import ServerError from './components/shared/ServerError';
+import Content from './components/content';
+import NotFound from './components/shared/not-found';
+import ServerError from './components/shared/server-error';
 import * as serviceWorker from './serviceWorker';
-import { stores } from "./stores/index";
+import RootStore from "./stores/root-store";
 import './styles/styles.css';
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
 )
 
 ReactDOM.render((
-    <Provider {...stores} >
+    <Provider rootStore={new RootStore()} >
         <App />
     </Provider>
 ), document.getElementById('root'));
