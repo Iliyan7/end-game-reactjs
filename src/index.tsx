@@ -10,21 +10,21 @@ import RootStore from "./stores/root-store";
 import './styles/styles.css';
 
 const App = () => (
-    <Router>
-        <Switch>
-            <Route exact path='/' render={() => (<Redirect to="/v1/" />)} />
-            <Route path='/v1' component={Content} />
-            <Route path='/error' component={ServerError} />
-            <Route component={NotFound} />
-        </Switch>
-    </Router>
+    <Provider rootStore={new RootStore()} >
+        <Router>
+            <Switch>
+                <Route exact path='/' render={() => (<Redirect to="/v1/" />)} />
+                <Route path='/v1' component={Content} />
+                <Route path='/error' component={ServerError} />
+                <Route component={NotFound} />
+            </Switch>
+        </Router>
+    </Provider>
 )
 
-ReactDOM.render((
-    <Provider rootStore={new RootStore()} >
-        <App />
-    </Provider>
-), document.getElementById('root'));
+const rootElement = document.getElementById('root')
+
+ReactDOM.render(<App />, rootElement);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

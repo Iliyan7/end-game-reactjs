@@ -12,8 +12,6 @@ type State = {
     [key: string]: any
 }
 
-@inject('rootStore')
-@observer
 class Register extends React.Component<Props, State>  {
 
     constructor(props: Props) {
@@ -32,7 +30,7 @@ class Register extends React.Component<Props, State>  {
     }
 
     get rootStore() {
-        return this.props.rootStore
+        return this.props.rootStore!
     }
 
     handleChange(event: any) {
@@ -76,4 +74,4 @@ class Register extends React.Component<Props, State>  {
     }
 }
 
-export default Register;
+export default inject('rootStore')(observer(Register))

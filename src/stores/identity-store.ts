@@ -1,5 +1,6 @@
 import { action, observable } from 'mobx';
 import RootStore from './root-store';
+import { TokenModel } from '../models/auth-models';
 
 class IdentityStore {
   @observable id: number | null = null
@@ -14,6 +15,16 @@ class IdentityStore {
 
   isInRole(role: string): boolean {
     return this.roles.includes(role);
+  }
+
+  @action
+  setStore(tokenData: TokenModel): void {
+    this.id = tokenData.id
+    this.firstName = tokenData.firstName
+    this.lastName = tokenData.lastName
+    this.email = tokenData.email
+    this.roles = tokenData.roles
+    this.isAuthenticated = true
   }
 
   @action

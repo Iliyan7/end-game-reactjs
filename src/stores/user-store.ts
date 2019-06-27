@@ -1,9 +1,8 @@
 import jwt_decode from 'jwt-decode';
 import { action } from 'mobx';
-import RootStore from './root-store';
 import http from '../http/http-client';
-import { LoginModel, RegisterModel } from '../models/auth-models';
-import { JwtTokenModel } from '../models/token-models';
+import { LoginModel, RegisterModel, SubscribeModel, TokenModel } from '../models/auth-models';
+import RootStore from './root-store';
 
 class UserStore {
     constructor(private rootStore: RootStore) {
@@ -16,16 +15,10 @@ class UserStore {
     @action async login(data: LoginModel) {
         this.rootStore.isLoading = true;
         try {
-            const { accessToken } = await http.post('/auth/login', data);
-
-            const decodedToken = jwt_decode(accessToken) as JwtTokenModel
-
-            this.identity.id = decodedToken.id
-            this.identity.email = decodedToken.email
-            this.identity.roles = decodedToken.roles
-            this.identity.isAuthenticated = true;
-
-            this.storeAccessToken(accessToken);
+            const { accessToken } = await http.post('/auth/login', data)
+            const decodedToken = jwt_decode(accessToken) as TokenModel
+            this.identity.setStore(decodedToken)
+            this.storeAccessToken(accessToken)
 
             this.rootStore.isLoading = false
         } catch (error) {
@@ -35,11 +28,19 @@ class UserStore {
         }
     }
 
-    @action async register(data: RegisterModel) {
+    @action async register(data: RegisterModel): Promise<void> {
         try {
-            var res = await http.post('/auth/register', data);
+            const res = await http.post('/auth/register', data);
         } catch (error) {
-            return error;
+            console.log(error)
+        }
+    }
+
+    @action async subscribeToNewsletter(data: SubscribeModel): Promise<void> {
+        try {
+            await http.post('/users/subscribe', data)
+        } catch (error) {
+            console.log(error)
         }
     }
 

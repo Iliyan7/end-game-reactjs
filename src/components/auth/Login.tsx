@@ -12,8 +12,6 @@ type State = {
     [key: string]: any
 }
 
-@inject('rootStore')
-@observer
 class Login extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
@@ -28,7 +26,7 @@ class Login extends React.Component<Props, State> {
     }
 
     get rootStore() {
-        return this.props.rootStore
+        return this.props.rootStore!
     }
 
     handleChange(event: any) {
@@ -68,5 +66,4 @@ class Login extends React.Component<Props, State> {
     }
 }
 
-export default Login;
-// inject((store: RootStore) => ({store}))(Login);
+export default inject('rootStore')(observer(Login))

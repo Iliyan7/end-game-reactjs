@@ -1,0 +1,27 @@
+import { observer } from 'mobx-react';
+import React from 'react';
+
+type Props = {
+  list: string[];
+}
+
+const CategoriesFilter = (observer((props: Props) => {
+  return (
+    <div className="widget-item">
+      <div className="categories-widget">
+        <h4 className="widget-title">categories</h4>
+        <ul>
+          {
+            props.list.map(x => (
+              <li>
+                <a href="#">{x}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  )
+}))
+
+export default CategoriesFilter;
