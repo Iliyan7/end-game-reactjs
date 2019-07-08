@@ -1,5 +1,5 @@
-import React from 'react';
-import Breadcrumb from '../shared/breadcrumb';
+import React from 'react'
+import Breadcrumb from '../shared/breadcrumb'
 
 class News extends React.Component {
 
@@ -46,7 +46,7 @@ class News extends React.Component {
                       magna aliqua.....
             </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -71,7 +71,7 @@ class News extends React.Component {
                       magna aliqua.....
             </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -96,7 +96,7 @@ class News extends React.Component {
                       magna aliqua.....
             </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -202,7 +202,7 @@ class News extends React.Component {
                         />
                         <div className="tw-text">
                           <a href="">Maria Smith</a> <span>On</span> The best
-                  online game out there{" "}
+                  online game out there{' '}
                         </div>
                       </div>
                       <div className="lc-item">
@@ -213,7 +213,7 @@ class News extends React.Component {
                         />
                         <div className="tw-text">
                           <a href="">Maria Smith</a> <span>On</span> The best
-                  online game out there{" "}
+                  online game out there{' '}
                         </div>
                       </div>
                       <div className="lc-item">
@@ -224,7 +224,7 @@ class News extends React.Component {
                         />
                         <div className="tw-text">
                           <a href="">Maria Smith</a> <span>On</span> The best
-                  online game out there{" "}
+                  online game out there{' '}
                         </div>
                       </div>
                       <div className="lc-item">
@@ -235,7 +235,7 @@ class News extends React.Component {
                         />
                         <div className="tw-text">
                           <a href="">Maria Smith</a> <span>On</span> The best
-                  online game out there{" "}
+                  online game out there{' '}
                         </div>
                       </div>
                     </div>
@@ -252,8 +252,8 @@ class News extends React.Component {
         </section>
 
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default News;
+export default News

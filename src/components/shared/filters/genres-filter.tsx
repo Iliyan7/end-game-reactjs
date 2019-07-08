@@ -1,19 +1,19 @@
+import { observer } from 'mobx-react'
 import React from 'react'
-import { observer } from 'mobx-react';
 
 type Props = {
   list: string[];
 }
 
-const GenresFilter = (observer((props: Props) => {
+const GenresFilter = (props: Props) => {
   return (
     <div className="widget-item">
       <div className="categories-widget">
         <h4 className="widget-title">Genre</h4>
         <ul>
           {
-            props.list.map(x => (
-              <li>
+            props.list.map((x, i) => (
+              <li key={i}>
                 <a href="#">{x}</a>
               </li>
             ))
@@ -22,6 +22,6 @@ const GenresFilter = (observer((props: Props) => {
       </div>
     </div>
   )
-}))
+}
 
-export default GenresFilter;
+export default observer(GenresFilter)

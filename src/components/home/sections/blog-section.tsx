@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const BlogSection = () => {
     return (
@@ -118,4 +118,4 @@ const BlogSection = () => {
     )
 }
 
-export default BlogSection;
+export default BlogSection

@@ -1,5 +1,4 @@
 import React from 'react'
-import { type } from 'os';
 
 type Props = {
   title: string
@@ -13,7 +12,7 @@ const GameRow = (props: Props) => {
         <img src={props.imageUrl} alt="#" />
         <h5>{props.title}</h5>
         <a href="game-single.html" className="read-more">
-          Read More{" "}
+          Read More{' '}
           <img src="/img/icons/double-arrow.png" alt="#" />
         </a>
       </div>
@@ -21,4 +20,4 @@ const GameRow = (props: Props) => {
   )
 }
 
-export default GameRow;
+export default GameRow

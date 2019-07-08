@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class IntroVideoSection extends React.Component {
     render() {
@@ -14,8 +14,8 @@ class IntroVideoSection extends React.Component {
                     </div>
                 </section>
             </React.Fragment>
-        );
+        )
     }
 }
 
-export default IntroVideoSection;
+export default IntroVideoSection

@@ -1,29 +1,38 @@
-import { action, observable } from 'mobx';
-import RootStore from './root-store';
-import { TokenModel } from '../models/auth-models';
+import jwt_decode from 'jwt-decode'
+import { action, observable } from 'mobx'
+import { TokenModel } from '../models/auth-models'
+import localStorageManager from '../utils/local-storage'
+import RootStore from './root-store'
 
 class IdentityStore {
-  @observable id: number | null = null
+  @observable id: number = 0
   @observable firstName: string = ''
   @observable lastName: string = ''
   @observable email: string = ''
   @observable roles: string[] = []
   @observable isAuthenticated: boolean = false
 
-  constructor(private rootStore: RootStore) {  
+  constructor(private rootStore: RootStore) {
+    const accessToken = localStorageManager.getAccessToken()
+
+    if (accessToken) {
+      this.setStore(accessToken)
+    }
   }
 
   isInRole(role: string): boolean {
-    return this.roles.includes(role);
+    return this.roles.includes(role)
   }
 
   @action
-  setStore(tokenData: TokenModel): void {
-    this.id = tokenData.id
-    this.firstName = tokenData.firstName
-    this.lastName = tokenData.lastName
-    this.email = tokenData.email
-    this.roles = tokenData.roles
+  setStore(accessToken: string): void {
+    const decodedToken = jwt_decode(accessToken) as TokenModel
+
+    this.id = decodedToken.id
+    this.firstName = decodedToken.firstName
+    this.lastName = decodedToken.firstName
+    this.email =  decodedToken.email
+    this.roles = decodedToken.roles
     this.isAuthenticated = true
   }
 
@@ -38,4 +47,4 @@ class IdentityStore {
   }
 }
 
-export default IdentityStore;
+export default IdentityStore

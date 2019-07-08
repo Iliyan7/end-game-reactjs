@@ -9,4 +9,4 @@ const FollowUs = () => (
     </React.Fragment>
 )
 
-export default FollowUs;
+export default FollowUs

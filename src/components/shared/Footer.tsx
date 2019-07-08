@@ -1,5 +1,6 @@
 import React from 'react'
-import FollowUs from './follow-us';
+import { Link } from 'react-router-dom'
+import FollowUs from './follow-us'
 
 const Footer = () => {
     return (
@@ -11,9 +12,9 @@ const Footer = () => {
                 <div className="footer-right-pic">
                     <img src="/img/footer-right-pic.png" />
                 </div>
-                <a href="#" className="footer-logo">
+                <Link to="/" className="footer-logo">
                     <img src="/img/logo.png" />
-                </a>
+                </Link>
                 <ul className="main-menu footer-menu">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Games</a></li>
@@ -30,4 +31,4 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+export default Footer

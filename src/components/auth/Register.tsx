@@ -1,12 +1,14 @@
-import { inject, observer } from 'mobx-react';
-import React from 'react';
-import { RegisterModel } from '../../models/auth-models';
-import { nameofFactory } from '../../shared/nameof-factory';
-import { RootStoreProp } from '../../stores/root-store';
-import Breadcrumb from '../shared/breadcrumb';
+import { inject, observer } from 'mobx-react'
+import React from 'react'
+import { RouteComponentProps } from 'react-router-dom'
+import { ROOT_STORE } from '../../constants'
+import { RegisterModel } from '../../models/auth-models'
+import { nameofFactory } from '../../shared/nameof-factory'
+import { RootStoreProp } from '../../stores/root-store'
+import Breadcrumb from '../shared/breadcrumb'
 
 type Props = {
-} & RootStoreProp
+} & RootStoreProp & RouteComponentProps
 
 type State = {
     [key: string]: any
@@ -15,7 +17,7 @@ type State = {
 class Register extends React.Component<Props, State>  {
 
     constructor(props: Props) {
-        super(props);
+        super(props)
 
         this.state = {
             firstName: '',
@@ -23,10 +25,10 @@ class Register extends React.Component<Props, State>  {
             email: '',
             password: '',
             retypePassword: '',
-        };
+        }
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     get rootStore() {
@@ -36,17 +38,17 @@ class Register extends React.Component<Props, State>  {
     handleChange(event: any) {
         const { target: { name, value } } = event
 
-        this.setState({ [name]: value });
+        this.setState({ [name]: value })
     }
 
     handleSubmit(event: React.SyntheticEvent) {
-        event.preventDefault();
+        event.preventDefault()
 
         this.rootStore.userStore.register(this.state as RegisterModel)
     }
 
     render() {
-        const nameof = nameofFactory<RegisterModel>();
+        const nameof = nameofFactory<RegisterModel>()
 
         return (
             <React.Fragment>
@@ -57,11 +59,11 @@ class Register extends React.Component<Props, State>  {
                         <div className="row">
                             <div className="col-lg-7 order-2 order-lg-1">
                                 <form onSubmit={this.handleSubmit} className="contact-form">
-                                    <input name={nameof("firstName")} type="text" value={this.state.firstName} onChange={this.handleChange} placeholder="First Name" />
-                                    <input name={nameof("lastName")} type="text" value={this.state.lastName} onChange={this.handleChange} placeholder="Last Name" />
-                                    <input name={nameof("email")} type="email" value={this.state.email} onChange={this.handleChange} placeholder="E-mail" />
-                                    <input name={nameof("password")} type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
-                                    <input name={nameof("retypePassword")} type="password" value={this.state.retypePassword} onChange={this.handleChange} placeholder="Re-type password" />
+                                    <input name={nameof('firstName')} type="text" value={this.state.firstName} onChange={this.handleChange} placeholder="First Name" />
+                                    <input name={nameof('lastName')} type="text" value={this.state.lastName} onChange={this.handleChange} placeholder="Last Name" />
+                                    <input name={nameof('email')} type="email" value={this.state.email} onChange={this.handleChange} placeholder="E-mail" />
+                                    <input name={nameof('password')} type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
+                                    <input name={nameof('retypePassword')} type="password" value={this.state.retypePassword} onChange={this.handleChange} placeholder="Re-type password" />
                                     <button className="site-btn">Register <img src="/img/icons/double-arrow.png" /></button>
                                 </form>
                             </div>
@@ -70,8 +72,8 @@ class Register extends React.Component<Props, State>  {
                 </section>
             </React.Fragment>
 
-        );
+        )
     }
 }
 
-export default inject('rootStore')(observer(Register))
+export default inject(ROOT_STORE)(observer(Register))

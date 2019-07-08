@@ -1,8 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import FollowUs from './follow-us';
+import { inject, observer } from 'mobx-react'
+import React, { SyntheticEvent } from 'react'
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
+import { RootStoreProp } from 'stores/root-store'
+import { ROOT_STORE } from '../../constants'
+import FollowUs from './follow-us'
 
-const Header = () => {
+type Props = {
+} & RootStoreProp & RouteComponentProps
+
+const Header = (props: Props) => {
+    const isLoggedIn = props.rootStore!.identityStore.isAuthenticated
+    const handleLogout = (_: SyntheticEvent) => {
+        props.rootStore!.userStore.logout()
+    }
     return (
         <header className="header-section">
             <div className="header-warp">
@@ -16,18 +26,25 @@ const Header = () => {
                     </a>
                     <nav className="top-nav-area w-100">
                         <div className="user-panel">
-                            <Link to="/v1/login">Login</Link> / <Link to="/v1/register">Register</Link>
+                            {isLoggedIn ?
+                                <React.Fragment>
+                                    <Link to="/profile">User Profile</Link> / <a onClick={handleLogout}>Logout</a>
+                                </React.Fragment> :
+                                <React.Fragment>
+                                    <Link to="/login">Login</Link> / <Link to="/register">Register</Link>
+                                </React.Fragment>
+                            }
                         </div>
                         <ul className="main-menu primary-menu">
-                            <li><Link to="/v1/">Home</Link></li>
-                            <li><Link to="/v1/games">Games</Link>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/games">Games</Link>
                                 <ul className="sub-menu">
-                                    <li><Link to="/v1/games/1/details">Game Singel</Link></li>
+                                    <li><Link to="/games/1/details">Game Singel</Link></li>
                                 </ul>
                             </li>
-                            <li><Link to="/v1/reviews">Reviews</Link></li>
-                            <li><Link to="/v1/news">News</Link></li>
-                            <li><Link to="/v1/contact">Contact</Link></li>
+                            <li><Link to="/reviews">Reviews</Link></li>
+                            <li><Link to="/news">News</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </nav>
                 </div>
@@ -36,4 +53,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default inject(ROOT_STORE)(observer(withRouter(Header)))

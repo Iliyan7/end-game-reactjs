@@ -1,7 +1,8 @@
-import { inject, observer } from 'mobx-react';
-import React from 'react';
-import { SubscribeModel } from '../../models/auth-models';
-import { RootStoreProp } from '../../stores/root-store';
+import { inject, observer } from 'mobx-react'
+import React from 'react'
+import { ROOT_STORE } from '../../constants'
+import { SubscribeModel } from '../../models/auth-models'
+import { RootStoreProp } from '../../stores/root-store'
 
 type Props = {
 } & RootStoreProp
@@ -10,8 +11,6 @@ type State = {
     [key: string]: any
 }
 
-@inject('rootStore')
-@observer
 class Newsletter extends React.Component<Props, State> {
 
     constructor(props: Props) {
@@ -19,24 +18,24 @@ class Newsletter extends React.Component<Props, State> {
 
         this.state = {
             email: '',
-        };
+        }
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     get rootStore() {
         return this.props.rootStore!
     }
-    
+
     handleChange(event: any) {
         const { target: { name, value } } = event
 
-        this.setState({ [name]: value });
+        this.setState({ [name]: value })
     }
 
     handleSubmit(event: React.SyntheticEvent) {
-        event.preventDefault();
+        event.preventDefault()
 
         this.rootStore.userStore.subscribeToNewsletter(this.state as SubscribeModel)
     }
@@ -56,4 +55,4 @@ class Newsletter extends React.Component<Props, State> {
     }
 }
 
-export default Newsletter;
+export default inject(ROOT_STORE)(observer(Newsletter))

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 type Props = {
   currentPage: string
@@ -12,12 +12,12 @@ const Breadcrumb = (props: Props) => {
       <div className="page-info">
         <h2>{props.currentPage}</h2>
         <div className="site-breadcrumb">
-          <Link to="/v1/">Home</Link> /
+          <Link to="/">Home</Link> /
           <span>{props.currentPage}</span>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Breadcrumb;
+export default Breadcrumb

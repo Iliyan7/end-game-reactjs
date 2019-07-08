@@ -1,6 +1,6 @@
-import React from 'react';
-import Breadcrumb from '../shared/breadcrumb';
-import AlphabetFilter from '../shared/filters/alphabet-filter';
+import React from 'react'
+import Breadcrumb from '../shared/breadcrumb'
+import AlphabetFilter from '../shared/filters/alphabet-filter'
 
 class Reviews extends React.Component {
 
@@ -9,7 +9,7 @@ class Reviews extends React.Component {
       <React.Fragment>
 
         <Breadcrumb currentPage="Reviews" background="/img/page-top-bg/2.jpg" />
-        
+
         <section className="review-section">
           <div className="container">
             <AlphabetFilter />
@@ -46,7 +46,7 @@ class Reviews extends React.Component {
                       aliquealiqua.....
                 </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -85,7 +85,7 @@ class Reviews extends React.Component {
                       aliquealiqua.....
                 </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -124,7 +124,7 @@ class Reviews extends React.Component {
                       aliquealiqua.....
                 </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -163,7 +163,7 @@ class Reviews extends React.Component {
                       aliquealiqua.....
                 </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -202,7 +202,7 @@ class Reviews extends React.Component {
                       aliquealiqua.....
                 </p>
                     <a href="#" className="read-more">
-                      Read More{" "}
+                      Read More{' '}
                       <img src="/img/icons/double-arrow.png" alt="#" />
                     </a>
                   </div>
@@ -219,8 +219,8 @@ class Reviews extends React.Component {
           </div>
         </section>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default Reviews;
+export default Reviews

@@ -1,19 +1,18 @@
 import React from 'react'
 import '../../styles/server-error.css'
 
-
 class ServerError extends React.Component {
 
   componentDidMount() {
     document.querySelector('body')!.style.cssText = 'background: #eaeaea;'
 
-    setTimeout(function () {
-      const load = document.querySelector("section.loading");
-  
+    setTimeout(() => {
+      const load = document.querySelector('section.loading')
+
       if (load) {
-        load.classList.remove('loading');
+        load.classList.remove('loading')
       }
-    }, 1000);
+    }, 1000)
   }
 
   render() {
@@ -43,4 +42,4 @@ class ServerError extends React.Component {
   }
 }
 
-export default ServerError;
+export default ServerError

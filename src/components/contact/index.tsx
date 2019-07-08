@@ -1,5 +1,5 @@
-import React from 'react';
-import Breadcrumb from '../shared/breadcrumb';
+import React from 'react'
+import Breadcrumb from '../shared/breadcrumb'
 
 class Contact extends React.Component {
   render() {
@@ -21,7 +21,7 @@ class Contact extends React.Component {
                   <input type="text" placeholder="Your name" />
                   <input type="text" placeholder="Your e-mail" />
                   <input type="text" placeholder="Subject" />
-                  <textarea placeholder="Message" defaultValue={""} />
+                  <textarea placeholder="Message" defaultValue={''} />
                   <button className="site-btn">
                     Send message<img
                       src="/img/icons/double-arrow.png"
@@ -63,8 +63,8 @@ class Contact extends React.Component {
         </section>
       </React.Fragment>
 
-    );
+    )
   }
 }
 
-export default Contact;
+export default Contact

@@ -1,3 +1,5 @@
 export const BASE_URL = 'http://localhost:5000/api'
 export const BASE_SECURE_URL = 'https://localhost:5001/api'
 export const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+export const ROOT_STORE = 'rootStore'
+export const TOKEN = 'accessToken'
