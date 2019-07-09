@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 import React, { SyntheticEvent } from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
-import { RootStoreProp } from 'stores/root-store'
+import { RootStoreProp } from '../../stores/root-store'
 import { ROOT_STORE } from '../../constants'
 import FollowUs from './follow-us'
 

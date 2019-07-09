@@ -15,7 +15,6 @@ type State = {
 }
 
 class Register extends React.Component<Props, State>  {
-
     constructor(props: Props) {
         super(props)
 

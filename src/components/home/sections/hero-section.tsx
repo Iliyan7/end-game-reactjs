@@ -1,9 +1,11 @@
+import 'owl.carousel/dist/assets/owl.carousel.css'
+import 'owl.carousel/dist/assets/owl.theme.default.css'
 import React from 'react'
 import OwlCarousel from 'react-owl-carousel'
 
 class HeroSection extends React.Component {
 
-    componentDidMount() {
+    componentDidMount(): void {
         const dots = document.querySelectorAll('.hero-slider .owl-dot')
 
         dots.forEach((dot, i) => {
@@ -17,20 +19,20 @@ class HeroSection extends React.Component {
         })
     }
 
-    render() {
+    render(): React.ReactNode {
         return (
             <section className="hero-section overflow-hidden">
                 <OwlCarousel
                     className="hero-slider owl-carousel"
-                    nav={true}
+                    items={1}
                     loop={true}
-                    dots={true}
-                    dotData={true}
+                    nav={true}
                     navText={['', '<img src="/img/icons/solid-right-arrow.png">']}
+                    dotData={true}
+                    autoplayTimeout={1000}
                     animateOut={'fadeOut'}
                     animateIn={'fadeIn'}
-                    items={1}
-                    autoplayTimeout={1000}>
+                    >
                     <div
                         className="hero-item set-bg d-flex align-items-center justify-content-center text-center"
                         style={{ backgroundImage: 'url("/img/slider-bg-1.jpg")' }}
