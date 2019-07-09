@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import { ROOT_STORE } from '../../constants'
 import { RegisterModel } from '../../models/auth-models'
 import { nameofFactory } from '../../shared/nameof-factory'
-import { RootStoreProp } from '../../stores/root-store'
+import RootStore, { RootStoreProp } from '../../stores/root-store'
 import Breadcrumb from '../shared/breadcrumb'
 
 type Props = {
@@ -31,23 +31,23 @@ class Register extends React.Component<Props, State>  {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    get rootStore() {
+    get rootStore(): RootStore {
         return this.props.rootStore!
     }
 
-    handleChange(event: any) {
-        const { target: { name, value } } = event
+    handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
+        const { target: { name, value } } = e
 
         this.setState({ [name]: value })
     }
 
-    handleSubmit(event: React.SyntheticEvent) {
-        event.preventDefault()
+    async handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
+        e.preventDefault()
 
-        this.rootStore.userStore.register(this.state as RegisterModel)
+        await this.rootStore.userStore.register(this.state as RegisterModel)
     }
 
-    render() {
+    render(): React.ReactNode {
         const nameof = nameofFactory<RegisterModel>()
 
         return (

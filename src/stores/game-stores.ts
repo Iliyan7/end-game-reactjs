@@ -1,5 +1,4 @@
 import { action, observable, onBecomeObserved } from 'mobx'
-import http from '../http/http-client'
 import { GameModel } from '../models/game-models'
 import RootStore from './root-store'
 
@@ -7,7 +6,7 @@ const mockGames = [
   'Zombie Appocalipse 2', 'Dooms Day', 'The Huricane',
   'Star Wars', 'Candy land', 'E.T.',
   'Zombie Appocalipse 2', 'Dooms Day', 'The Huricane'
- ]
+]
 
 class GameStore {
 
@@ -28,7 +27,7 @@ class GameStore {
 
       setTimeout(() => {
         mockGames.map((g, i) => {
-          this.games.push({title: g, imageUrl: `/img/games/${i + 1}.jpg`})
+          this.games[i] = { title: g, imageUrl: `/img/games/${i + 1}.jpg` }
         })
 
         this.rootStore.stopLoading()

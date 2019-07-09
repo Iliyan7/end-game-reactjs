@@ -12,6 +12,8 @@
         "no-console": false,
         "indent": [true, "spaces"],
         "object-literal-sort-keys": false,
-        "interface-name": false
+        "object-literal-key-quotes": [true, "consistent-as-needed"],
+        "interface-name": false,
+        "typedef": [true, "call-signature", "parameter", "property-declaration", "member-variable-declaration"]
 	}
 }
