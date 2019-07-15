@@ -2,13 +2,14 @@ import { action } from 'mobx'
 import http from '../http/http-client'
 import { LoginModel, RegisterModel, SubscribeModel } from '../models/auth-models'
 import localStorageManager from '../utils/local-storage'
+import IdentityStore from './identity-store'
 import RootStore from './root-store'
 
 class UserStore {
     constructor(private rootStore: RootStore) {
     }
 
-    private get identity() {
+    private get identity(): IdentityStore {
         return this.rootStore.identityStore
     }
 
@@ -49,7 +50,7 @@ class UserStore {
         }
     }
 
-    @action logout() {
+    @action logout(): void {
         this.identity.clearStore()
         localStorageManager.deleteAccessToken()
     }

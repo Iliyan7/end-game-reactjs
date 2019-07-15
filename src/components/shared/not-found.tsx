@@ -4,7 +4,7 @@ import '../../styles/not-found.css'
 const NotFound = () => {
     return (
         <section className="not-found">
-            <svg id="yetiSVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 470">
+            <svg id="yetiSVG" viewBox="0 0 600 470">
                 <linearGradient id="flashlightGrad" x1="126.5842" x2="90.5842" y1="176.5625" y2="213.5625" gradientUnits="userSpaceOnUse">
                     <stop offset={0} stopColor="#333" />
                     <stop offset=".076" stopColor="#414141" />

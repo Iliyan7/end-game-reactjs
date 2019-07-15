@@ -1,5 +1,5 @@
 import { action, observable } from 'mobx'
-import GameStore from './game-stores'
+import GamesStore from './games-store'
 import IdentityStore from './identity-store'
 import UserStore from './user-store'
 
@@ -10,21 +10,21 @@ export type RootStoreProp = {
 class RootStore {
   userStore: UserStore
   identityStore: IdentityStore
-  gamesStore: GameStore
+  gamesStore: GamesStore
 
   @observable isLoading: boolean = false
 
   constructor() {
     this.userStore = new UserStore(this)
     this.identityStore = new IdentityStore(this)
-    this.gamesStore = new GameStore(this)
+    this.gamesStore = new GamesStore(this)
   }
 
-  @action startLoading() {
+  @action startLoading(): void {
     this.isLoading = true
   }
 
-  @action stopLoading() {
+  @action stopLoading(): void {
     this.isLoading = false
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 type Props = {
   title: string
@@ -11,10 +12,10 @@ const GameRow = (props: Props) => {
       <div className="game-item">
         <img src={props.imageUrl} alt="#" />
         <h5>{props.title}</h5>
-        <a href="game-single.html" className="read-more">
+        <Link to="games/1/details" className="read-more">
           Read More{' '}
           <img src="/img/icons/double-arrow.png" alt="#" />
-        </a>
+        </Link>
       </div>
     </div>
   )
