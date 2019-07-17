@@ -9,7 +9,7 @@ const mockGames = [
 
 class GamesStore {
   @observable games: GameModel[] = []
-  @observable gamesPages: number = 1
+  @observable totalPages: number = 1
 
   constructor(private rootStore: RootStore) {
     this.fetchInitGames = this.fetchInitGames.bind(this)
@@ -28,7 +28,7 @@ class GamesStore {
         mockGames.map((g, i) => {
           if (i < 9) {
             this.games[i] = { title: g, imageUrl: `/img/games/${i + 1}.jpg` }
-            this.gamesPages = 3
+            this.totalPages = 3
           }
         })
 

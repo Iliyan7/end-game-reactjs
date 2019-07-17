@@ -1,10 +1,26 @@
+import { inject, observer } from 'mobx-react'
 import React from 'react'
+import { RouteComponentProps } from 'react-router'
+import { ROOT_STORE } from '../../constants'
+import RootStore, { RootStoreProp } from '../../stores/root-store'
 import Breadcrumb from '../shared/breadcrumb'
 import AlphabetFilter from '../shared/filters/alphabet-filter'
+import Pagination from '../shared/pagination'
+import ReviewRow from './elements/review-row'
 
-class Reviews extends React.Component {
+type Props = {
+} & RootStoreProp & RouteComponentProps
 
-  render() {
+type State = {
+}
+
+class Reviews extends React.Component<Props, State> {
+
+  get rootStore(): RootStore {
+    return this.props.rootStore!
+  }
+
+  render(): React.ReactNode {
     return (
       <React.Fragment>
 
@@ -14,208 +30,11 @@ class Reviews extends React.Component {
           <div className="container">
             <AlphabetFilter />
 
-            <div className="review-item">
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="review-pic">
-                    <img src="/img/review/1.jpg" />
-                  </div>
-                </div>
-                <div className="col-lg-8">
-                  <div className="review-content text-box text-white">
-                    <div className="rating">
-                      <h5>
-                        <i>Rating</i>
-                        <span>4.5</span> / 5
-                  </h5>
-                    </div>
-                    <div className="top-meta">
-                      11.11.18 / in <a href="">Games</a>
-                    </div>
-                    <h3>Final Appocalipse</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt.Vivamus volutpat nibh
-                      ac sollicitudin imperdiet. Donec scelerisque lorem
-                      sodales odio ultricies, nec rhoncus ex lobortis. Vivamus
-                      tincidunt sit amet sem id varius. Donec elementum
-                      aliquet tortor. Curabitur justo mi, efficitur sed eros
-                      aliquealiqua.....
-                </p>
-                    <a href="#" className="read-more">
-                      Read More{' '}
-                      <img src="/img/icons/double-arrow.png" alt="#" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="review-item">
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="review-pic">
-                    <img src="/img/review/2.jpg" />
-                  </div>
-                </div>
-                <div className="col-lg-8">
-                  <div className="review-content text-box text-white">
-                    <div className="rating">
-                      <h5>
-                        <i>Rating</i>
-                        <span>4.5</span> / 5
-                  </h5>
-                    </div>
-                    <div className="top-meta">
-                      11.11.18 / in <a href="">Games</a>
-                    </div>
-                    <h3>Hounted Mansion 3</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt.Vivamus volutpat nibh
-                      ac sollicitudin imperdiet. Donec scelerisque lorem
-                      sodales odio ultricies, nec rhoncus ex lobortis. Vivamus
-                      tincidunt sit amet sem id varius. Donec elementum
-                      aliquet tortor. Curabitur justo mi, efficitur sed eros
-                      aliquealiqua.....
-                </p>
-                    <a href="#" className="read-more">
-                      Read More{' '}
-                      <img src="/img/icons/double-arrow.png" alt="#" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="review-item">
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="review-pic">
-                    <img src="/img/review/3.jpg" />
-                  </div>
-                </div>
-                <div className="col-lg-8">
-                  <div className="review-content text-box text-white">
-                    <div className="rating">
-                      <h5>
-                        <i>Rating</i>
-                        <span>3.5</span> / 5
-                  </h5>
-                    </div>
-                    <div className="top-meta">
-                      11.11.18 / in <a href="">Games</a>
-                    </div>
-                    <h3>Shooting Stuff</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt.Vivamus volutpat nibh
-                      ac sollicitudin imperdiet. Donec scelerisque lorem
-                      sodales odio ultricies, nec rhoncus ex lobortis. Vivamus
-                      tincidunt sit amet sem id varius. Donec elementum
-                      aliquet tortor. Curabitur justo mi, efficitur sed eros
-                      aliquealiqua.....
-                </p>
-                    <a href="#" className="read-more">
-                      Read More{' '}
-                      <img src="/img/icons/double-arrow.png" alt="#" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="review-item">
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="review-pic">
-                    <img src="/img/review/4.jpg" />
-                  </div>
-                </div>
-                <div className="col-lg-8">
-                  <div className="review-content text-box text-white">
-                    <div className="rating">
-                      <h5>
-                        <i>Rating</i>
-                        <span>4.5</span> / 5
-                  </h5>
-                    </div>
-                    <div className="top-meta">
-                      11.11.18 / in <a href="">Games</a>
-                    </div>
-                    <h3>Zombie War Nation 1</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt.Vivamus volutpat nibh
-                      ac sollicitudin imperdiet. Donec scelerisque lorem
-                      sodales odio ultricies, nec rhoncus ex lobortis. Vivamus
-                      tincidunt sit amet sem id varius. Donec elementum
-                      aliquet tortor. Curabitur justo mi, efficitur sed eros
-                      aliquealiqua.....
-                </p>
-                    <a href="#" className="read-more">
-                      Read More{' '}
-                      <img src="/img/icons/double-arrow.png" alt="#" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="review-item">
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="review-pic">
-                    <img src="/img/review/5.jpg" />
-                  </div>
-                </div>
-                <div className="col-lg-8">
-                  <div className="review-content text-box text-white">
-                    <div className="rating">
-                      <h5>
-                        <i>Rating</i>
-                        <span>2.5</span> / 5
-                  </h5>
-                    </div>
-                    <div className="top-meta">
-                      11.11.18 / in <a href="">Games</a>
-                    </div>
-                    <h3>Jams’e Island 3</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt.Vivamus volutpat nibh
-                      ac sollicitudin imperdiet. Donec scelerisque lorem
-                      sodales odio ultricies, nec rhoncus ex lobortis. Vivamus
-                      tincidunt sit amet sem id varius. Donec elementum
-                      aliquet tortor. Curabitur justo mi, efficitur sed eros
-                      aliquealiqua.....
-                </p>
-                    <a href="#" className="read-more">
-                      Read More{' '}
-                      <img src="/img/icons/double-arrow.png" alt="#" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="site-pagination">
-              <a href="#" className="active">
-                01.
-          </a>
-              <a href="#">02.</a>
-              <a href="#">03.</a>
-            </div>
+            {this.rootStore.reviewsStore.reviews.map((r) => (
+              <ReviewRow key={r.id} title={r.title} shortDescription={r.description} dateCreated={r.dateCreated} rating={r.rating} imageUrl={r.imageUrl} />
+            ))}
+
+            <Pagination numberOfPages={4} />
           </div>
         </section>
       </React.Fragment>
@@ -223,4 +42,4 @@ class Reviews extends React.Component {
   }
 }
 
-export default Reviews
+export default inject(ROOT_STORE)(observer(Reviews))
