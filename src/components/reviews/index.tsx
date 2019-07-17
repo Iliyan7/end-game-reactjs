@@ -16,8 +16,23 @@ type State = {
 
 class Reviews extends React.Component<Props, State> {
 
+  constructor(props: Props) {
+    super(props)
+
+    this.handlePickLetter = this.handlePickLetter.bind(this)
+    this.handlePageChange = this.handlePageChange.bind(this)
+  }
+
   get rootStore(): RootStore {
     return this.props.rootStore!
+  }
+
+  handlePickLetter(letter: string): void {
+    console.log(letter)
+  }
+
+  handlePageChange(page: number): void {
+    console.log(page)
   }
 
   render(): React.ReactNode {
@@ -28,13 +43,13 @@ class Reviews extends React.Component<Props, State> {
 
         <section className="review-section">
           <div className="container">
-            <AlphabetFilter />
+            <AlphabetFilter onPickLetter={this.handlePickLetter} />
 
             {this.rootStore.reviewsStore.reviews.map((r) => (
               <ReviewRow key={r.id} title={r.title} shortDescription={r.description} dateCreated={r.dateCreated} rating={r.rating} imageUrl={r.imageUrl} />
             ))}
 
-            <Pagination numberOfPages={4} />
+            <Pagination numberOfPages={4} onPageChange={this.handlePageChange} />
           </div>
         </section>
       </React.Fragment>

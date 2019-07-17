@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {
   numberOfPages: number
-  handlePageChange?: (selectedPage: number) => void
+  onPageChange?: (selectedPage: number) => void
 }
 
 type State = {
@@ -35,8 +35,8 @@ class Pagination extends React.Component<Props, State> {
 
     this.setState({ [oldPage!]: false, [selectedPage]: true, })
 
-    if (this.props.handlePageChange) {
-      this.props.handlePageChange(selectedPage)
+    if (this.props.onPageChange) {
+      this.props.onPageChange(selectedPage)
     }
   }
 

@@ -43,7 +43,7 @@ class Games extends React.Component<Props, State> {
                     <GameRow key={i} title={g.title} imageUrl={g.imageUrl} />
                   ))}
                 </div>
-                <Pagination numberOfPages={3} handlePageChange={this.handlePageChange.bind(this)}/>
+                <Pagination numberOfPages={3} onPageChange={this.handlePageChange.bind(this)}/>
               </div>
               <div className="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
                 <div id="stickySidebar">

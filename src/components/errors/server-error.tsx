@@ -3,7 +3,7 @@ import '../../styles/server-error.css'
 
 class ServerError extends React.Component {
 
-  componentDidMount() {
+  componentDidMount(): void {
     document.querySelector('body')!.style.cssText = 'background: #eaeaea;'
 
     setTimeout(() => {
@@ -15,7 +15,7 @@ class ServerError extends React.Component {
     }, 1000)
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
       <section className="server-error loading">
         <h1>500</h1>

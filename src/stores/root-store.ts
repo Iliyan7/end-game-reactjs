@@ -1,8 +1,13 @@
-import { action, observable } from 'mobx'
+import { action, configure, observable } from 'mobx'
 import GamesStore from './games-store'
 import IdentityStore from './identity-store'
 import ReviewsStore from './reviews-store'
 import UserStore from './user-store'
+
+configure({
+  computedRequiresReaction: true,
+  enforceActions: 'never',
+})
 
 export type RootStoreProp = {
   rootStore?: RootStore

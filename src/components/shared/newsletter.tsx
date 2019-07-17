@@ -1,8 +1,8 @@
 import { inject, observer } from 'mobx-react'
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { ROOT_STORE } from '../../constants'
 import { SubscribeModel } from '../../models/auth-models'
-import { RootStoreProp } from '../../stores/root-store'
+import RootStore, { RootStoreProp } from '../../stores/root-store'
 
 type Props = {
 } & RootStoreProp
@@ -12,7 +12,6 @@ type State = {
 }
 
 class Newsletter extends React.Component<Props, State> {
-
     constructor(props: Props) {
         super(props)
 
@@ -24,23 +23,23 @@ class Newsletter extends React.Component<Props, State> {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    get rootStore() {
+    get rootStore(): RootStore {
         return this.props.rootStore!
     }
 
-    handleChange(event: any) {
+    handleChange(event: ChangeEvent<HTMLInputElement>): void {
         const { target: { name, value } } = event
 
         this.setState({ [name]: value })
     }
 
-    handleSubmit(event: React.SyntheticEvent) {
-        event.preventDefault()
+    handleSubmit(e: React.SyntheticEvent): void {
+        e.preventDefault()
 
         this.rootStore.userStore.subscribeToNewsletter(this.state as SubscribeModel)
     }
 
-    render() {
+    render(): React.ReactNode {
         return (
             <section className="newsletter-section">
                 <div className="container">
