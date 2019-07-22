@@ -1,5 +1,5 @@
 import jwt_decode from 'jwt-decode'
-import { action, observable } from 'mobx'
+import { action, computed, observable } from 'mobx'
 import { TokenModel } from '../models/auth-models'
 import localStorageManager from '../utils/local-storage'
 import RootStore from './root-store'

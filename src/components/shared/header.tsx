@@ -1,8 +1,8 @@
 import { inject, observer } from 'mobx-react'
 import React, { SyntheticEvent } from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
-import { RootStoreProp } from '../../stores/root-store'
 import { ROOT_STORE } from '../../constants'
+import { RootStoreProp } from '../../stores/root-store'
 import FollowUs from './follow-us'
 
 type Props = {
@@ -10,9 +10,12 @@ type Props = {
 
 const Header = (props: Props) => {
     const isLoggedIn = props.rootStore!.identityStore.isAuthenticated
-    const handleLogout = (_: SyntheticEvent) => {
+    const handleLogout = (e: SyntheticEvent) => {
+        e.preventDefault()
         props.rootStore!.userStore.logout()
+        props.history.push('/login')
     }
+
     return (
         <header className="header-section">
             <div className="header-warp">
@@ -28,7 +31,7 @@ const Header = (props: Props) => {
                         <div className="user-panel">
                             {isLoggedIn ?
                                 <React.Fragment>
-                                    <Link to="/profile">User Profile</Link> / <a onClick={handleLogout}>Logout</a>
+                                    <Link to="/account">Account</Link> / <a href="" onClick={handleLogout}>Logout</a>
                                 </React.Fragment> :
                                 <React.Fragment>
                                     <Link to="/login">Login</Link> / <Link to="/register">Register</Link>

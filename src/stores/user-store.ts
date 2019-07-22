@@ -35,10 +35,10 @@ class UserStore {
         try {
             await http.post('/auth/register', data)
 
-            this.rootStore.isLoading = false
+            this.rootStore.stopLoading()
         } catch (error) {
-            this.rootStore.isLoading = false
-            console.log(error)
+            this.rootStore.stopLoading()
+            console.error(error)
         }
     }
 
@@ -46,13 +46,15 @@ class UserStore {
         try {
             await http.post('/users/subscribe', data)
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     }
 
     @action logout(): void {
+        this.rootStore.startLoading()
         this.identity.clearStore()
         localStorageManager.deleteAccessToken()
+        this.rootStore.stopLoading()
     }
 }
 

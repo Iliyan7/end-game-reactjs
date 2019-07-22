@@ -41,7 +41,12 @@ class Login extends React.Component<Props, State> {
     async handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault()
 
-        await this.rootStore.userStore.login(this.state as LoginModel)
+        try {
+            await this.rootStore.userStore.login(this.state as LoginModel)
+            this.props.history.push('/')
+        } catch (error) {
+           console.error(error)
+        }
     }
 
     render(): React.ReactNode {

@@ -2,7 +2,7 @@ import { inject, observer } from 'mobx-react'
 import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { ROOT_STORE } from '../../constants'
-import { RegisterModel } from '../../models/auth-models'
+import { LoginModel, RegisterModel } from '../../models/auth-models'
 import { nameofFactory } from '../../shared/nameof-factory'
 import RootStore, { RootStoreProp } from '../../stores/root-store'
 import Breadcrumb from '../shared/breadcrumb'
@@ -43,7 +43,13 @@ class Register extends React.Component<Props, State>  {
     async handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault()
 
-        await this.rootStore.userStore.register(this.state as RegisterModel)
+        try {
+            await this.rootStore.userStore.register(this.state as RegisterModel)
+            await this.rootStore.userStore.login(this.state as LoginModel)
+            this.props.history.push('/')
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     render(): React.ReactNode {
