@@ -1,4 +1,5 @@
 export interface GameModel {
+  id: number
   title: string
-  imageUrl: string
+  thumbnailUrl: string
 }

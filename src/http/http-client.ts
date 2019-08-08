@@ -1,5 +1,6 @@
 
 import * as Constants from '../constants'
+import localStorageManager from '../utils/local-storage'
 import { HttpMethod, HttpOptions } from './http-client-types'
 
 class HttpClient {
@@ -9,64 +10,85 @@ class HttpClient {
         return this.instance || (this.instance = new this())
     }
 
-    async get(url: string, options?: HttpOptions) {
-        const data = await this.makeRequest({ method: 'GET', url, options })
+    async get(url: string, options?: HttpOptions): Promise<any> {
+        const data = await this.makeRequest('GET', url, null, options)
 
         return data
     }
 
-    async post(url: string, body: any, options?: HttpOptions) {
-        const data = await this.makeRequest({ method: 'POST', url, body, options })
+    async post(url: string, body: any, options?: HttpOptions): Promise<any> {
+        const data = await this.makeRequest('POST', url, body, options)
 
         return data
     }
 
-    async put(url: string, body: any, options?: HttpOptions) {
-        const data = await this.makeRequest({ method: 'PUT', url, body, options })
+    async put(url: string, body: any, options?: HttpOptions): Promise<any> {
+        const data = await this.makeRequest('PUT', url, body, options)
 
         return data
     }
 
-    async patch(url: string, body: any, options?: HttpOptions) {
-        const data = await this.makeRequest({ method: 'PATCH', url, body, options })
+    async patch(url: string, body: any, options?: HttpOptions): Promise<any> {
+        const data = await this.makeRequest('PATCH', url, body, options)
 
         return data
     }
 
-    async delete(url: string, options?: HttpOptions) {
-        const data = await this.makeRequest({ method: 'DELETE', url, options })
+    async delete(url: string, options?: HttpOptions): Promise<any> {
+        const data = await this.makeRequest('DELETE', url, null, options)
 
         return data
     }
 
-    async makeRequest(params: { method: HttpMethod, url: string, body?: any, options?: HttpOptions }) {
-        const {method, url, body, options} = params
+    async makeRequest(method: HttpMethod, url: string, body: any | null, options?: HttpOptions): Promise<any> {
+        let endpoint = Constants.BASE_URL + url
 
-        const endpoint = Constants.BASE_URL + url
-
-        const init: any = {
-            method,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
+        const requestData: any = { method, headers: { 'Content-Type': 'application/json' } }
 
         if (options) {
-            init.headers = options.headers
-            init.headers['Content-Type'] = options.contentType
+            if (options.withCredentials) {
+                const accessToken = localStorageManager.getAccessToken()
+                if (accessToken) {
+                    requestData.headers['Authorization'] = `Bearer ${accessToken}`
+
+                }
+            }
+
+            requestData.headers = { ...requestData.headers, ...options.headers }
+
+            endpoint = this.appendParams(endpoint, options.params)
         }
 
         if (body) {
-            init.body = JSON.stringify(body)
+            requestData.body = JSON.stringify(body)
         }
 
         try {
-            const response = await fetch(endpoint, init)
+            const response = await fetch(endpoint, requestData)
 
             return response.json()
         } catch (error) {
             throw error
         }
+    }
+
+    private appendParams(url: string, queryParams: any): string {
+        let endpoint = url
+        let paramsCount = 0
+
+        for (const key in queryParams) {
+            if (queryParams.hasOwnProperty(key)) {
+                const value = queryParams[key]
+
+                if (paramsCount++ < 1) {
+                    endpoint += `?${key}=${value}`
+                } else {
+                    endpoint += `&${key}=${value}`
+                }
+            }
+        }
+
+        return endpoint
     }
 }
 

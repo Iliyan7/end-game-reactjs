@@ -2,10 +2,10 @@ import { inject, observer } from 'mobx-react'
 import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { ROOT_STORE } from '../../constants'
+import GamesStore from '../../stores/games-store'
 import RootStore, { RootStoreProp } from '../../stores/root-store'
 import Breadcrumb from '../shared/breadcrumb'
 import AlphabetFilter from '../shared/filters/alphabet-filter'
-import CategoriesFilter from '../shared/filters/categories-filter'
 import GenresFilter from '../shared/filters/genres-filter'
 import PlatformsFilter from '../shared/filters/platforms-filter'
 import Pagination from '../shared/pagination'
@@ -21,6 +21,10 @@ class Games extends React.Component<Props, State> {
 
   get rootStore(): RootStore {
     return this.props.rootStore!
+  }
+
+  get gamesStore(): GamesStore {
+    return this.rootStore.gamesStore
   }
 
   handlePageChange(selectedPage: number): void {
@@ -40,15 +44,15 @@ class Games extends React.Component<Props, State> {
               <div className="col-xl-7 col-lg-8 col-md-7">
                 <div className="row">
                   {this.rootStore.gamesStore.games.map((g, i) => (
-                    <GameRow key={i} title={g.title} imageUrl={g.imageUrl} />
+                    <GameRow key={i} id={g.id} title={g.title} thumbnailUrl={g.thumbnailUrl} />
                   ))}
                 </div>
-                <Pagination numberOfPages={3} onPageChange={this.handlePageChange.bind(this)}/>
+                <Pagination numberOfPages={this.gamesStore.totalPages} onPageChange={this.handlePageChange.bind(this)} />
               </div>
               <div className="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
                 <div id="stickySidebar">
 
-                  <CategoriesFilter list={this.rootStore.gamesStore.categories} />
+                  {/* <CategoriesFilter list={this.rootStore.gamesStore.categories} /> */}
 
                   <PlatformsFilter list={this.rootStore.gamesStore.platforms} />
 

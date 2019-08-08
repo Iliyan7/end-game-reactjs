@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { observer } from 'mobx-react'
 import React from 'react'
 
 type Props = {
@@ -7,7 +8,8 @@ type Props = {
 }
 
 type State = {
-  [x: string]: boolean
+  // [x: string]: boolean
+  selectedPage: number
 }
 
 class Pagination extends React.Component<Props, State> {
@@ -15,15 +17,9 @@ class Pagination extends React.Component<Props, State> {
   constructor(props: any) {
     super(props)
 
-    const totalPages = [...new Array(props.numberOfPages).keys()]
-    const obj: any = {}
-    for (const page of totalPages) {
-      obj[page + 1] = false
+    this.state = {
+      selectedPage: 1
     }
-
-    obj[1] = true
-
-    this.state = obj
 
     this.handleClick = this.handleClick.bind(this)
   }
@@ -31,9 +27,7 @@ class Pagination extends React.Component<Props, State> {
   handleClick(selectedPage: number, e: React.SyntheticEvent): void {
     e.preventDefault()
 
-    const oldPage = Object.keys(this.state).find((key) => this.state[key] === true)
-
-    this.setState({ [oldPage!]: false, [selectedPage]: true, })
+    this.setState({ selectedPage })
 
     if (this.props.onPageChange) {
       this.props.onPageChange(selectedPage)
@@ -41,18 +35,20 @@ class Pagination extends React.Component<Props, State> {
   }
 
   render(): React.ReactNode {
-    const buttons = this.state
+    const pages = new Array(this.props.numberOfPages).fill(false)
 
-    return (
-      <div className="site-pagination">
-        {Object.keys(buttons).map((i) => (
-          <a key={i} className={classNames({ active: buttons[i] })} href="" onClick={(e) => this.handleClick(+i, e)}>
-            {(i).toString().padStart(2, '0')}.
-            </a>
-        ))}
-      </div>
-    )
+    return (<div className="site-pagination">
+      {pages.map((_, i) => {
+        const currentPage = i + 1
+        const active = currentPage === this.state.selectedPage
+        return (
+          <a key={currentPage} className={classNames({ active })} href="" onClick={(e) => this.handleClick(currentPage, e)}>
+            {(currentPage).toString().padStart(2, '0')}.
+          </a>
+        )
+      })}
+    </div>)
   }
 }
 
-export default Pagination
+export default observer(Pagination)

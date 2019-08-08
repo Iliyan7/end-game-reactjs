@@ -1,15 +1,11 @@
 import { action, observable, onBecomeObserved } from 'mobx'
+import http from '../http/http-client'
 import { GameModel } from '../models/game-models'
 import RootStore from './root-store'
 
-const mockGames = [
-  'Zombie Appocalipse 2', 'Dooms Day', 'The Huricane', 'Star Wars', 'Candy land', 'E.T.', 'Zombie Appocalipse 2', 'Dooms Day', 'The Huricane',
-  'Ivan grozni!', 'bate qkiq'
-]
-
 class GamesStore {
   @observable games: GameModel[] = []
-  @observable totalPages: number = 1
+  @observable totalPages: number = 2
 
   constructor(private rootStore: RootStore) {
     this.fetchInitGames = this.fetchInitGames.bind(this)
@@ -21,19 +17,17 @@ class GamesStore {
     this.rootStore.startLoading()
 
     try {
-      // const res = await http.get('/games')
-      // this.games = res
-
-      setTimeout(() => {
-        mockGames.map((g, i) => {
-          if (i < 9) {
-            this.games[i] = { title: g, imageUrl: `/img/games/${i + 1}.jpg` }
-            this.totalPages = 3
-          }
+      const res = await http.get('/games')
+      res.result.map((g: GameModel) => {
+        this.games.push({
+          id: g.id,
+          title: g.title,
+          thumbnailUrl: g.thumbnailUrl
         })
+      })
+      this.totalPages = res.totalPages
 
-        this.rootStore.stopLoading()
-      }, 1000)
+      this.rootStore.stopLoading()
     } catch (error) {
       console.log(error)
       this.rootStore.stopLoading()
@@ -44,28 +38,14 @@ class GamesStore {
     this.rootStore.startLoading()
 
     try {
-      setTimeout(() => {
-        const tempGames: GameModel[] = []
-        let item = 0
-        for (let i = 0; i < 9; i++) {
-          const offset = (page - 1) * 9
-          if (!mockGames[offset + i]) { break }
+      const res = await http.get('/games', { params: { pageIndex: page.toString() } })
+      this.games = res.result
 
-          tempGames[item++] = { title: mockGames[offset + i], imageUrl: `/img/games/${i % 9 + 1}.jpg` }
-        }
-
-        this.games = tempGames
-
-        this.rootStore.stopLoading()
-      }, 1000)
+      this.rootStore.stopLoading()
     } catch (error) {
       console.log(error)
       this.rootStore.stopLoading()
     }
-  }
-
-  get categories(): string[] {
-    return ['Games', 'Gaming Tips & Tricks', 'Online Games', 'Team Games', 'Community', 'Uncategorized']
   }
 
   get platforms(): string[] {

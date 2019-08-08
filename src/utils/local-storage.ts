@@ -7,7 +7,7 @@ class LocalStorageManager {
         return this.instance || (this.instance = new this())
     }
 
-  getAccessToken() {
+  getAccessToken(): string | null {
     return localStorage.getItem(TOKEN)
   }
 
